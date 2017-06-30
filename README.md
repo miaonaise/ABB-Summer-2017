@@ -19,9 +19,9 @@ After you finish reading this document, please read the following documents in t
 5. PythonOCC/Open CasCade
 These are the names of the free CAD softwares.
 
-The best software for achieving the aim is FreeCAD. PythonOCC itself can do more advanced things. Other softwares can be disregarded if the reader wants to save time.
-More good things to know:
-- All softwares in the list have Python API for scripting geometry. (i.e. technically speaking, they are all capable of fulfilling the aim. I have only achieved the aim with FreeCAD.)
+The best software for achieving the aim is FreeCAD. PythonOCC can do more advanced things. Other softwares can be disregarded if the reader wants to save time.
+More info:
+- All softwares in the list have Python API for scripting geometry. (i.e. technically speaking, they are all capable of fulfilling the aim. I have only achieved the aim with FreeCAD due to my 0 experience in being a developer.)
 - Only FreeCAD and PythonOCC has python as its default scripting language. The others have a different default scripting language that runs with their GUI.
 
 ##
