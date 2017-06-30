@@ -24,7 +24,8 @@ A little addition:
 - All softwares in the list have Python API for scripting geometry. (i.e. technically speaking, they are all capable of fulfilling the aim. I have only achieved the aim with FreeCAD.)
 - Only FreeCAD and PythonOCC has python as its default scripting language. The others have a different default scripting language that runs with their GUI.
 
-Also please contact me via e-mail (julia970906@gmail.com) if you have any suggestions on improving my documents. Thanks!
+##
+Please contact me via e-mail (julia970906@gmail.com) if you have any suggestions on improving my documents. Thanks!
 
 
 --The End--
