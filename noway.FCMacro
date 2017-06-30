@@ -1,0 +1,10 @@
+import Part
+doc = App.newDocument("transformer")
+
+f = Part.makeBox(10,10,10)
+c = Part.makeSphere(10)
+holy = c.cut(f)
+
+tank = doc.addObject("Part::Feature","tank")
+tank.Shape = holy
+doc.recompute() 

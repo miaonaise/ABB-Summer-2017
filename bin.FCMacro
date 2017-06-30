@@ -1,0 +1,20 @@
+centerBush = Part.makeCylinder(BR,BH,Base.Vector(BI+BR,TW/2,TH),Base.Vector(0,0,1))
+
+BSIN = math.sin(math.radians(BA)) ; BCOS = math.cos(math.radians(BA))
+leftBush = Part.makeCylinder(BR,BH,Base.Vector(BI+BR,TW/2-10-BR*BCOS,TH-BR*BSIN),Base.Vector(0,-BSIN,BCOS))
+rightBush = Part.makeCylinder(BR,BH,Base.Vector(BI+BR,TW/2+10+BR*BCOS,TH-BR*BSIN),Base.Vector(0,BSIN,BCOS))
+
+# RADIATOR
+# symmetric at y = TW/2
+RL = 12;RW = 25;RH = 15 # along x,y,z axes respectively
+RS = 3 # radiator's top is RD higher than tank's top
+RX = TL; RY = (TW-RW)/2; RZ = TH-RH+RS
+radiator = Part.makeBox(RL,RW,RH,Base.Vector(RX,RY,RZ))
+
+# FANS on radiator
+FR = 3 # fan radius
+FD = 2 # fan depth
+FS = 2 # fan's distance from radiator's bottom
+FX = RL/2+RX; FYleft = RY; FYright = RY+RW; FZ = RZ+FS+FR
+leftFan = Part.makeCylinder(FR,FD,Base.Vector(FX,FYleft,FZ),Base.Vector(0,-1,0))
+rightFan = Part.makeCylinder(FR,FD,Base.Vector(FX,FYright,FZ),Base.Vector(0,1,0))
