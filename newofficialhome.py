@@ -82,16 +82,16 @@ doc.rightBush.Shape = rightBushSHP
 
 
 
-# Thatthing
-XXXL = 30
-XXXR = 5
-XXXSX = 8 # pop out length alonng x-axis
-XXXSY = 4 # sep along y-axis
-XXXSZ = 7 # sep along z-axis
-XXXX = TL-(XXXL-XXXSX); XXXY = -(XXXSY+XXXR); XXXZ = TH+XXXSZ+XXXR
-XXXSHP = Part.makeCylinder(XXXR,XXXL,Base.Vector(XXXX,XXXY,XXXZ),Base.Vector(1,0,0))
-doc.addObject("Part::Feature","XXX")
-doc.XXX.Shape = XXXSHP
+# EXPANSION VESSEL
+EL = 30 # length
+ER = 5 # radius
+ESX = 8 # pop out length alonng x-axis
+ESY = 4 # sep along y-axis
+ESZ = 7 # sep along z-axis
+EX = TL-(EL-ESX); EY = -(ESY+ER); EZ = TH+ESZ+ER
+expVesselSHP = Part.makeCylinder(ER,EL,Base.Vector(EX,EY,EZ),Base.Vector(1,0,0))
+doc.addObject("Part::Feature","expVessel")
+doc.expVessel.Shape = expVesselSHP
 
 
 # RADIATOR
@@ -122,7 +122,7 @@ __objs__.append(FreeCAD.getDocument("transformer").getObject("tank"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("midBush"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("leftBush"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("rightBush"))
-__objs__.append(FreeCAD.getDocument("transformer").getObject("XXX"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("expVessel"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("radiator"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("leftFan"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("rightFan"))
