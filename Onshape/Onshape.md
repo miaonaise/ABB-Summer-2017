@@ -1,7 +1,8 @@
 # Onshape
 
-Onshape is a CAD software that operates on an online platform. This makes it easy to share and edit a document with others. 
-The geometry can be scripted using FeatureScript, watch the short video introduction here: https://cad.onshape.com/FsDoc/
+Onshape is a CAD software that operates on an online platform. This makes it easy to share and edit a document with others. All you need to do is create an account at https://www.onshape.com/ and you can begin drawing in your browser. 
+
+The geometry can be scripted using FeatureScript, watch the 90-sec introduction video here: https://cad.onshape.com/FsDoc/
 As seen in the link above, tutorials and documentation are fully provided. However, the scripting language is not simple and different from Python.
 
 To script a geometry on Onshape using Python one needs to use API key. The Python API at the moment is very limited. This is the only documentation available: https://github.com/onshape-public/apikey
