@@ -38,3 +38,28 @@ __objs__.append(FreeCAD.getDocument("docName").getObject("myBox"))
 
 Part.export(__objs__,"C:/Users/XJULLI/Desktop/testBox.step")
 ```
+One can also run this script within the FreeCAD application by opening the python file in FreeCAD. 
+
+Overview of the Part Module: https://www.freecadweb.org/wiki/Part_Module
+
+How to script creating and modifying Part objects: https://www.freecadweb.org/wiki/Topological_data_scripting
+
+Part API: https://www.freecadweb.org/wiki/Part_API
+
+Object API: https://www.freecadweb.org/wiki/Object_API
+
+These tools have helped me to achieve the aim. 
+
+## Exporting
+Exporting with STL:
+```python
+import Mesh
+Mesh.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/test.stl")
+```
+Exporting with STEP:
+```python
+Import Part
+Part.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/test.step")
+```
+
+
