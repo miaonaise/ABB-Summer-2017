@@ -18,7 +18,7 @@ Once you are ready, you can open your FreeCAD application and change some settin
 
 ## Scripting
 Begin with studying a simple script of box.
-´´´python
+``python
 werlkjw
 rerjwelrjl
-´´´
+```
