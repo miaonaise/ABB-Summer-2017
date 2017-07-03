@@ -17,18 +17,18 @@ Once you are ready, you can open your FreeCAD application and change some settin
 - View > Panels > Python console
 
 ## Scripting
-Begin with studying a simple script of box.
+Begin with studying a simple script of box. This script includes the essential code you need in order to run it in the command prompt.
 ```python
-import sys
+import sys #  Helping the computer finding the FreeCAD modules
 sys.path.append("/Program Files/FreeCAD 0.16/bin")
 
 import FreeCAD
-import Part
+import Part  #  Esssential modules
 
-doc = App.newDocument("docName")
+doc = App.newDocument("docName") #  Creating new document
 
-boxShape = Part.makeBox(2,4,3)
-doc.addObject("Part::Feature","myBox")
+boxShape = Part.makeBox(2,4,3) #  Creating a shape with Part
+doc.addObject("Part::Feature","myBox") #  myBox is the object name
 doc.myBox.Shape = boxShape
 
 doc.recompute()
