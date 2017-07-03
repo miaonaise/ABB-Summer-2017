@@ -1,19 +1,16 @@
 **Julia Li Jun 28, 11:07 UTC**
+
 Hi,
 
 I hope I have come to the right place. I am looking into creating a geometry with python scripting. I am hoping to get a library with Onshape modules to achieve an STL file in the end by running my python script. If I have not misunderstood, I will need an API-Key. I am new to this, hopefully I can achieve this with Onshape.
 
 Regards, Julia
 ##
-**mark_noyes (Onshape Support)**
-
-Jun 28, 11:35 UTC
+**mark_noyes (Onshape Support) Jun 28, 11:35 UTC**
 
 Yes, you should be able to do what you want. I am not clear on what stage you are at with Onshape development so I will give you a high level outline and you can go from there. To begin, you need to have "Developer Role" assigned. Just go to the developer portal (https://dev-portal.onshape.com) and accept the terms of use. Inside the developer portal you have access to detailed help topics for development, an interface for creating API keys, and interfaces to allow creating OAuth-based applications (which it doesn't seem like you need). You should begin by reading the API overview help section The sample applications include one called apikey, which includes python sample code. Note that it is not a complete python API, but includes a simple framework for python API requests with several API method wrappers implemented. The specific methods you want to call might not be implemented yet, but it is pretty easy to extend it. You will want to get the API Explorer from the App Store to fine out the details on the available APIs. If you have additional questions, feel free to post them here.
 ##
-**Julia Li**
-
-Jun 28, 16:10 UTC
+**Julia Li Jun 28, 16:10 UTC**
 
 Hi,
 
@@ -23,9 +20,7 @@ I would be thankful if you could tell a little more about this whole system for 
 
 Regards, Julia
 ##
-**mark_noyes (Onshape Support)**
-
-Jun 28, 17:25 UTC
+**mark_noyes (Onshape Support) Jun 28, 17:25 UTC**
 
 A possible flow of a program that does what you want is:
 1. Create a document using Documents - Create Document
