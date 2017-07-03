@@ -18,7 +18,22 @@ Once you are ready, you can open your FreeCAD application and change some settin
 
 ## Scripting
 Begin with studying a simple script of box.
-``python
-werlkjw
-rerjwelrjl
+```python
+import sys
+sys.path.append("/Program Files/FreeCAD 0.16/bin")
+
+import Part
+
+doc = App.newDocument("doc_name")
+
+boxShape = Part.makeBox(2,4,3)
+doc.addObject("Part::Feature","myBox")
+doc.myBox.Shape = boxShape
+
+doc.recompute()
+
+__objs__=[]
+__objs__.append(FreeCAD.getDocument("transformer").getObject("tank"))
+
+Part.export(__objs__,"C:/Users/XJULLI/Desktop/testBox.step")
 ```
