@@ -1,8 +1,7 @@
 # PythonOCC
 We begin with OPEN CASCADE. 
 
-_OpenCascade is a software development platform freely available in open source. It includes C++ components for 3D surface and solid modeling, visualization, data exchange and rapid application development. OpenCascade is extremely mature (20 years of development by experts), stable and complete. OpenCascade is written in C++, which is not the simplest of programming languages to use … PythonOCC makes it much easier to use OpenCascade functionalities by providing Python functions and objects that mimick the C++ implementation of OpenCascade. Technically speaking, PythonOCC is a Python wrapper library around OpenCascade._
-(https://pythonocc.wordpress.com/2013/02/25/getting-started-installing-on-windows/)
+_OpenCascade is a software development platform freely available in open source. It includes C++ components for 3D surface and solid modeling, visualization, data exchange and rapid application development. OpenCascade is extremely mature (20 years of development by experts), stable and complete. OpenCascade is written in C++, which is not the simplest of programming languages to use … PythonOCC makes it much easier to use OpenCascade functionalities by providing Python functions and objects that mimick the C++ implementation of OpenCascade. Technically speaking, PythonOCC is a Python wrapper library around OpenCascade. (https://pythonocc.wordpress.com/2013/02/25/getting-started-installing-on-windows/)_
 
 Here is introduction and installation instructions for PythonOCC: https://github.com/tpaviot/pythonocc-core. In this repository you can also find examples.
 Some examples here too: http://www.pythonocc.org/category/quick-examples/ where I find example "Hello dumb box!" most helpful yet.
@@ -16,7 +15,7 @@ Things that put me off from trying:
 - Familiarity with FreeCAD
 
 Note(!):
-_PythonOCC is a pretty young and active project that aims at binding the whole range of OpenCasCADe functions into a python module. This is a very different approach than FreeCAD, where only certain components of OpenCasCade are used, resulting in a much simpler structure. PythonOCC, on the other hand, since it provides you access to all of OCC classes and functions, is very complex, but also very powerful. It is therefore a very fine addition to FreeCAD. When you are limited by FreeCAD's available OCC functionality in your python scripts, it's time to load pythonOCC.(https://www.freecadweb.org/wiki/PythonOCC)_
+_PythonOCC is a pretty young and active project that aims at binding the whole range of OpenCasCADe functions into a python module. This is a very different approach than FreeCAD, where only certain components of OpenCasCade are used, resulting in a much simpler structure. PythonOCC, on the other hand, since it provides you access to all of OCC classes and functions, is very complex, but also very powerful. It is therefore a very fine addition to FreeCAD. When you are limited by FreeCAD's available OCC functionality in your python scripts, it's time to load pythonOCC. (https://www.freecadweb.org/wiki/PythonOCC)_
 
 Repeat: PythonOCC aims to be a complete binding of OCC(Open CasCade) while FreeCAD does not and results into a much simpler code. 
 
