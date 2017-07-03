@@ -1,6 +1,6 @@
 # FreeCAD
 
-### Installation
+## Installation
 Install Python 2.7: https://www.python.org/downloads/release/python-2713/
 
 Install FreeCAD: https://www.freecadweb.org/wiki/Download
@@ -16,4 +16,4 @@ Once you are ready, you can open your FreeCAD application and add some settings:
 - View > Panels > Report view
 - View > Panels > Python console
 
-### Scripting
+## Scripting
