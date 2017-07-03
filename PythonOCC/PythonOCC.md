@@ -3,6 +3,8 @@ We begin with OPEN CASCADE.
 
 _OpenCascade is a software development platform freely available in open source. It includes C++ components for 3D surface and solid modeling, visualization, data exchange and rapid application development. OpenCascade is extremely mature (20 years of development by experts), stable and complete. OpenCascade is written in C++, which is not the simplest of programming languages to use … PythonOCC makes it much easier to use OpenCascade functionalities by providing Python functions and objects that mimick the C++ implementation of OpenCascade. Technically speaking, PythonOCC is a Python wrapper library around OpenCascade. (https://pythonocc.wordpress.com/2013/02/25/getting-started-installing-on-windows/)_
 
+Tip: the OCC in PythonOCC stands for Open CasCade.
+
 The installation instructions for PythonOCC: https://github.com/tpaviot/pythonocc-core. In this repository you can also find examples and an introduction of pythonocc.
 
 Some examples here too: http://www.pythonocc.org/category/quick-examples/ where I find example "Hello dumb box!" most helpful yet.
