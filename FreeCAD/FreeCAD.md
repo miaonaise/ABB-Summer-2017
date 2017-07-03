@@ -22,9 +22,10 @@ Begin with studying a simple script of box.
 import sys
 sys.path.append("/Program Files/FreeCAD 0.16/bin")
 
+import FreeCAD
 import Part
 
-doc = App.newDocument("doc_name")
+doc = App.newDocument("docName")
 
 boxShape = Part.makeBox(2,4,3)
 doc.addObject("Part::Feature","myBox")
@@ -33,7 +34,7 @@ doc.myBox.Shape = boxShape
 doc.recompute()
 
 __objs__=[]
-__objs__.append(FreeCAD.getDocument("transformer").getObject("tank"))
+__objs__.append(FreeCAD.getDocument("docName").getObject("myBox"))
 
 Part.export(__objs__,"C:/Users/XJULLI/Desktop/testBox.step")
 ```
