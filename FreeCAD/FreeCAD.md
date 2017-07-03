@@ -15,7 +15,7 @@ Once you are ready, you can open your FreeCAD application and change some settin
 - Edit > Preferences > General > Output Window > _Select both boxes under_ Python interpreter > Apply > OK
 - View > Panels > Report view
 - View > Panels > Python console
-
+Whatever you do in the GUI it will output as a python command in the python console.
 ## Scripting
 Begin with studying a simple script of box. This script includes the essential code you need in order to run it in the command prompt.
 ```python
@@ -33,7 +33,7 @@ doc.myBox.Shape = boxShape
 
 doc.recompute()
 
-__objs__=[]
+__objs__=[] #  List for all objects to be exported
 __objs__.append(FreeCAD.getDocument("docName").getObject("myBox"))
 
 Part.export(__objs__,"C:/Users/XJULLI/Desktop/testBox.step")
