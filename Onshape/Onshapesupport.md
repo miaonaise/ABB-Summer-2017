@@ -1,12 +1,12 @@
-Julia Li Jun 28, 11:07 UTC
+##Julia Li Jun 28, 11:07 UTC##
 
 Hi,
 
 I hope I have come to the right place. I am looking into creating a geometry with python scripting. I am hoping to get a library with Onshape modules to achieve an STL file in the end by running my python script. If I have not misunderstood, I will need an API-Key. I am new to this, hopefully I can achieve this with Onshape.
 
 Regards, Julia
-
-mark_noyes (Onshape Support)
+##
+##mark_noyes (Onshape Support)##
 
 Jun 28, 11:35 UTC
 
