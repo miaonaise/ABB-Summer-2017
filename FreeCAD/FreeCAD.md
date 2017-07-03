@@ -5,7 +5,7 @@ Install Python 2.7: https://www.python.org/downloads/release/python-2713/
 
 Install FreeCAD: https://www.freecadweb.org/wiki/Download
 
-When given option in installation: Add PythonPATH
+During installation, select the option Add PythonPATH.
 
 Make sure the FreeCAD version and the Python version are compatible, i.e. both should be 64 bit version or 32 bit.
 
