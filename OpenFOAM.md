@@ -1,9 +1,9 @@
 #OpenFOAM
 Video Tutorials:
 
-https://www.youtube.com/watch?v=3iZfVmFkvB8&list=PLqxhJj6bcnY9RoIgzeF6xDh5L9bbeK3BL
+- https://www.youtube.com/watch?v=3iZfVmFkvB8&list=PLqxhJj6bcnY9RoIgzeF6xDh5L9bbeK3BL
 
-https://www.youtube.com/watch?v=KznljrgWSvo
+- https://www.youtube.com/watch?v=KznljrgWSvo
 
 Tutorial Guide: http://www.openfoam.com/documentation/tutorial-guide/introduction.php
 
