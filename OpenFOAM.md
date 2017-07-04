@@ -22,6 +22,6 @@ cp -r $FOAM_TUTORIALS $FOAM_RUN
   - initial time directory, e.g.0.
 
 ### 2.1 Lid-driven cavity flow
-## 2.1.1 Pre-processing
+#### 2.1.1 Pre-processing
     cd $FOAM_RUN/tutorials/incompressible/icoFoam/cavity/cavity
 - OpenFOAM solves the case in 3 dimensions by default but can be instructed to solve in 2 dimensions by specifying a ‘special’ empty boundary condition on boundaries normal to the (3rd) dimension for which no solution is required. Here, the mesh must be 1 cell layer thick, and the empty patches planar. 
