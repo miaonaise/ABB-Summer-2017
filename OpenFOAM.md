@@ -9,6 +9,9 @@ Tutorial Guide: http://www.openfoam.com/documentation/tutorial-guide/introductio
 
 Windows Installation: https://openfoam.org/download/windows-10/
 
+http://www.openfoam.com/documentation/tutorial-guide/tutorialse2.php#x6-60002.1
+https://cfd.direct/openfoam/user-guide/dambreak/
+
 ```
 mkdir -p $FOAM_RUN
 cp -r $FOAM_TUTORIALS $FOAM_RUN
