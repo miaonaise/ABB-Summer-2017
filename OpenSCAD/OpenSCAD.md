@@ -8,5 +8,8 @@ OpenSCAD has a simple script language. The full library documentation is here: h
 
 In addition, you can also use Python for OpenSCAD with "SolidPython". Full version of SolidPython documentation is here: http://solidpython.readthedocs.io/en/latest/ including installation guide. The simplicity of the script is preserved.
 
-I do not continue using OpenSCAD because it can only export in 2D file formats or STL/OFF. When inputting geometry with such file format one would receive a geometry in ANSA like this:
+I have not continued using OpenSCAD because it can only export in 2D file formats or STL/OFF. When inputting geometry with such file format one would receive a geometry in ANSA like this:
+![ex](https://github.com/miaonaise/ABB-Summer-2017/blob/master/OpenSCAD/failscad.PNG)
+
+
 
