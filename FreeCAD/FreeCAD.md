@@ -59,4 +59,24 @@ Part.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/test.[FILETYPE]")
 ```
 Results when importing into ANSA:
 
+**STL**
+- Only elements are imported
+- Fast import
+![stl](https://github.com/miaonaise/ABB-Summer-2017/blob/master/FreeCAD/ansa-stl.PNG)
+
+**STEP**
+- "not responding" appears while opening in ANSA, wait for 3-4 minutes for it to load
+- Red lines can be fixed quickly in the _current_ model
+- After fix:
+![step](https://github.com/miaonaise/ABB-Summer-2017/blob/master/FreeCAD/ansa-step.PNG)
+
+**IGES**
+- "not responding" appears while opening in ANSA, wait for 2-3 minutes for it to load
+- Difficult to use fix
+- After fix:
+![iges](https://github.com/miaonaise/ABB-Summer-2017/blob/master/FreeCAD/ansa-iges.PNG)
+
+
+
+
 
