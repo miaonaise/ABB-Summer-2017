@@ -64,8 +64,6 @@ Results when importing into ANSA:
 ![stl](https://github.com/miaonaise/ABB-Summer-2017/blob/master/FreeCAD/ansa-stl.PNG)
 
 **STEP/IGES**
-
-First, you have to change settings in ANSA. Settings>Translators>General and set the field for the translation of neutral files to CT. Once you will use CT for the translation mind to de-activate the 'Heal Model' in case it is activated. 'Heal Model' field is under All format>Neutral files with CT>Topology.
-
+- First, you have to change settings in ANSA. Settings>Translators>General and set the field for the translation of neutral files to CT. Once you will use CT for the translation mind to de-activate the 'Heal Model' in case it is activated. 'Heal Model' field is under All format>Neutral files with CT>Topology.
 ![geo](https://github.com/miaonaise/ABB-Summer-2017/blob/master/FreeCAD/ansa-step.PNG)
 
