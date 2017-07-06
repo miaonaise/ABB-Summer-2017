@@ -51,16 +51,12 @@ Object API: https://www.freecadweb.org/wiki/Object_API
 
 These tools have helped me to achieve the aim. 
 
-## Exporting
-Exporting with STL:
-```python
-import Mesh
-Mesh.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/test.stl")
-```
-Exporting with STEP:
+## Exporting and Importing
+Exporting with [FILETYPE] = stl, step, iges
 ```python
 Import Part
-Part.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/test.step")
+Part.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/test.[FILETYPE]")
 ```
+Results when importing into ANSA:
 
 
