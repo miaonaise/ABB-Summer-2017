@@ -1,3 +1,6 @@
+Questions:
+- ANSA Properties Names
+
 To-do list:
 - Set up file using pythonOCC
 - Read material on OpenFOAM
