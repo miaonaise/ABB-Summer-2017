@@ -18,5 +18,9 @@ Saturday
 Sunday
 - moms lunch
 - shopping
+  - monki
+  - UO
+  - HM
+  - 
 - moms dinner
 - 
