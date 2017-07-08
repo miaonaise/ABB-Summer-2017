@@ -18,9 +18,15 @@ Saturday
 Sunday
 - moms lunch
 - shopping
-  - monki
-  - UO
-  - HM
-  - 
+  - Götgatan
+    - monki
+    - weekday
+    - Granit
+    - HM
+  - Mäter Samuelsgatan
+    - HM
+    - UO
+    - COS
+    - & other stories
 - moms dinner
 - 
