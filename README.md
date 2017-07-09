@@ -14,7 +14,7 @@ After you finish reading this document, please read the following documents in t
 These are the names of the free CAD softwares.
 
 ## RESULT
-FreeCAD is the best software for achieving the aim. PythonOCC can do more advanced things. Other softwares are limited.
+FreeCAD is the best software for achieving the aim. PythonOCC can do more advanced things. Other softwares have signifciant limitations for achieving the aim.
 
 More info:
 - All softwares in the list have Python API for scripting geometry. (i.e. technically speaking, they are all capable of fulfilling the aim. I have only achieved the aim with FreeCAD due to my poor experience in being a developer.)
