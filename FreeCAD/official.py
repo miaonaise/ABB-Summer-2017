@@ -3,7 +3,7 @@
 # Macro Begin: C:\Users\XJULLI\Documents\MacroJuju\test.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
 
 import sys
-sys.path.append("/Program Files/FreeCAD 0.16/bin")
+sys.path.append("/Program Files/FreeCAD 0.16/bin") # for the system to find the FreeCAD modules
 
 import math
 import FreeCAD
