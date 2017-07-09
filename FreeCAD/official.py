@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# Macro Begin: C:\Users\XJULLI\Documents\MacroJuju\test.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
-
 import sys
 sys.path.append("/Program Files/FreeCAD 0.16/bin") # for the system to find the FreeCAD modules
 
