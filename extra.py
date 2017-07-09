@@ -13,10 +13,8 @@ doc = App.newDocument("cooler")
 #  COOLER
 CL = 100; CW = 260; CH = 20
 coolerSHP = Part.makeBox(CL,CW,CH)
-doc.addObject("Part::Feature","cooler")
-doc.cooler.Shape = coolerSHP
 
-#  CHANNELS
+#  ADDING CHANNELS
 n = input("number of channels: ")
 length = input("lengths of channels: ")
 sep = input("separation distance of channels from left to right of front face: ")
@@ -25,7 +23,11 @@ height = 10
 thd = CH - height - bhd #  top height difference
 bhd = 7 #  bottom height difference
 
-puppy = 0
+decoy = 0
 for i in range(0,n):
   channelSHP = Part.makeBox(length[i],CW,height,Base.Vector(puppy+sep[i],0,bhd))
+  coolerSHP = coolerSHP.cut(channelSHP)
+  decoy += length[i] + sep[i]
   
+doc.addObject("Part::Feature","cooler")
+doc.cooler.Shape = coolerSHP
