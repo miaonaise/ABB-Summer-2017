@@ -3,11 +3,12 @@ Welcome to my repository. In this repository you will find the work I have compl
 
 ## TASK DESCRIPTION
 The aim is to produce a geometry in a script file by using Python API/modules from a free CAD software. The task was to research which softwares would be able to fulfill the aim and then compare and evaluate their API/modules.
-More details:
-- (Example of aim) Edit python file (.py) - Run module - STEP file exported - open STEP file in ANSA - a geometry ready for mesh.
+
+Example of aim can look like this:
+
+_Edit python file (.py) - Run module - file of geometry exported - open file in ANSA - a geometry ready for mesh._
 - Script language: Python 2.7
-- Parameters of the geometry should be easily editable.
-- The file format should be readable by ANSA for mesh. 
+- Geometry should be parametrized
 
 ## HOW TO NAVIGATE THROUGH MY WORK
 After you finish reading this document, please read the following documents in the given order:
