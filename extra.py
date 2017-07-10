@@ -20,7 +20,6 @@ length = input("lengths of channels: ")
 sep = input("separation distance of channels from left to right of front face: ")
 
 height = 10
-thd = CH - height - bhd #  top height difference
 bhd = 7 #  bottom height difference
 
 decoy = 0
