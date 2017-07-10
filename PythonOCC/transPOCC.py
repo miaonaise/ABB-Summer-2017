@@ -27,11 +27,11 @@ BIHPack = BIHSm+BIHLg+2*BIS # pack length
 BIno = int(BCL//BIHPack) # number of packs fitted into core length
 BIrem = BCL % BIHPack # remainder length
 
-Btap = BRepPrimAPI_MakeCylinder(BOR,BTL)
+Btap = BRepPrimAPI_MakeCylinder(BOR,BTL).Shape()
 p = gp_Ax2(gp_Pnt(0,0,BTL),gp_DZ()) # placement
-Bcore = BRepPrimAPI_MakeCylinder(p,BCR,BCL)
+Bcore = BRepPrimAPI_MakeCylinder(p,BCR,BCL).Shape()
 p = gp_Ax2(gp_Pnt(0,0,BTL+BCL),gp_DZ()) # placement
-Bhead = BRepPrimAPI_MakeCylinder(p,BOR,BHL)
+Bhead = BRepPrimAPI_MakeCylinder(p,BOR,BHL).Shape()
 bushing = BRepAlgoAPI_Fuse(Btap, Bcore).Shape()
 bushing = BRepAlgoAPI_Fuse(bushing, Bhead).Shape()
 
@@ -39,10 +39,10 @@ BIinit = BTL+float(BIrem)/2+BIS # initial height for first cone
 for i in range(0,BIno):
 	Bconez = BIinit + i*BIHPack	
   	p = gp_Ax2(gp_Pnt(0,0,Bconez),gp_DZ())
-	BconeLg = Part.makeCone(p,BIRLg,BCR,BIHLg)
+	BconeLg = BRepPrimAPI_MakeCone(p,BIRLg,BCR,BIHLg).Shape()
   	bushing = BRepAlgoAPI_Fuse(bushing, BconeLg).Shape()
   	p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ())
-	BconeSm = Part.makeCone(p,BIRSm,BCR,BIHSm)
+	BconeSm = BRepPrimAPI_MakeCone(p,BIRSm,BCR,BIHSm).Shape()
 	bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
 
 
