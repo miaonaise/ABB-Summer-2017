@@ -24,7 +24,7 @@ bhd = 7 #  bottom height difference
 
 decoy = 0
 for i in range(0,n):
-  channelSHP = Part.makeBox(length[i],CW,height,Base.Vector(puppy+sep[i],0,bhd))
+  channelSHP = Part.makeBox(length[i],CW,height,Base.Vector(decoy+sep[i],0,bhd))
   coolerSHP = coolerSHP.cut(channelSHP)
   decoy += length[i] + sep[i]
   
