@@ -33,9 +33,17 @@ Bcore = BRepPrimAPI_MakeCylinder(p,BCR,BCL)
 p = gp_Ax2(gp_Pnt(0,0,BTL+BCL),gp_DZ()) # placement
 Bhead = BRepPrimAPI_MakeCylinder(p,BOR,BHL)
 bushing = BRepAlgoAPI_Fuse(Btap, Bcore).Shape()
-bushing = BRepAlgoAPI_Fuse(bushig, Bhead).Shape()
+bushing = BRepAlgoAPI_Fuse(bushing, Bhead).Shape()
 
-
+BIinit = BTL+float(BIrem)/2+BIS # initial height for first cone
+for i in range(0,BIno):
+	Bconez = BIinit + i*BIHPack	
+  p = gp_Ax2(gp_Pnt(0,0,Bconez),gp_DZ())
+	BconeLg = Part.makeCone(p,BIRLg,BCR,BIHLg)
+  bushing = BRepAlgoAPI_Fuse(bushing, BconeLg).Shape()
+  p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ())
+	BconeSm = Part.makeCone(p,BIRSm,BCR,BIHSm)
+	bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
 
 
 # initialize the STEP exporter
@@ -43,5 +51,5 @@ step_writer = STEPControl_Writer()
 
 # transfer shapes and write file
 step_writer.Transfer(tank,STEPControl_AsIs)
-step_writer.Transfer(cyl_s,STEPControl_AsIs)
+step_writer.Transfer(bushing,STEPControl_AsIs)
 step_writer.Write("test.stp")
