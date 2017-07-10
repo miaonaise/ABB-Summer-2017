@@ -2,6 +2,7 @@ Questions:
 - ANSA Properties Names
 - Batch file - run in another prompt
 - Geometry that can only be made with primitive shapes + booleon operations?
+- Report doc ready?
 
 To-do list:
 - Set up file using pythonOCC
