@@ -19,7 +19,8 @@ FreeCAD is the best software for achieving the aim. PythonOCC can do more advanc
 More info:
 - All softwares in the list have Python API for scripting geometry. (i.e. technically speaking, they are all capable of fulfilling the aim. I have only achieved the aim with FreeCAD.)
 - Only FreeCAD and PythonOCC has python as its default scripting language. The others have a different default scripting language that runs with their GUI.
-- Efi recommends not to import geometry in STL files in ANSA. 
+- ANSA supporter recommends not to import geometry in STL files in ANSA. 
 
 ##
-Please contact me via e-mail (julia970906@gmail.com) if you have any suggestions on improving my documents. 
+Please contact me via e-mail (julia970906@gmail.com) if you have any suggestions on improving my documents.
+I operate on Windows 10 Version 1703.
