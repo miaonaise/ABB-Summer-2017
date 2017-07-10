@@ -23,3 +23,7 @@ Modules I have used for my geometry:
 - [BRepPrimAPI](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.BRepPrimAPI.html#module-OCC.BRepPrimAPI) For creating primitive surface geometry
 - [BRepAlgoAPI](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.BRepAlgoAPI.html#module-OCC.BRepAlgoAPI) For booleon operations on the surface geometry
 
+
+
+Additional links:
+https://www.opencascade.com/content/difference-between-brepalgo-and-brepalgoapi
