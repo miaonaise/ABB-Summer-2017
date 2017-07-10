@@ -27,3 +27,4 @@ Modules I have used for my geometry:
 
 Additional links:
 https://www.opencascade.com/content/difference-between-brepalgo-and-brepalgoapi
+export sample: https://github.com/tpaviot/pythonocc-core/blob/master/examples/core_export_step_ap203.py
