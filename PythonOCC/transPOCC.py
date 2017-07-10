@@ -10,6 +10,10 @@ TL = 20; TW = 60; TH = 30
 tank = BRepPrimAPI_MakeBox(TL, TW, TH).Shape()
 
 # BUSHING
+BA = 20  # angle between bushings in degrees
+BS = 10 # seperation distance between two bushings
+BIn = 3 # how far in bushing comes from the y-axis
+
 BH = 40 # bush height/total length
 BHL = 4 # head length
 BTL = 5 # tap length
@@ -44,6 +48,7 @@ for i in range(0,BIno):
   	p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ())
 	BconeSm = BRepPrimAPI_MakeCone(p,BIRSm,BCR,BIHSm).Shape()
 	bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
+
 
 
 # initialize the STEP exporter
