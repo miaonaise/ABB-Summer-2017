@@ -5,7 +5,8 @@ Questions:
 - Report doc ready?
 
 To-do list:
-- Set up file using pythonOCC
+- Finish PythonOCC Script
+- Update documentation
 - Read material on OpenFOAM
   - http://foam.sourceforge.net/docs/Guides-a4/OpenFOAMUserGuide-A4.pdf
   - https://cfd.direct/openfoam/user-guide/
