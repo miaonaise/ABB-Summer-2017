@@ -38,10 +38,10 @@ bushing = BRepAlgoAPI_Fuse(bushing, Bhead).Shape()
 BIinit = BTL+float(BIrem)/2+BIS # initial height for first cone
 for i in range(0,BIno):
 	Bconez = BIinit + i*BIHPack	
-  p = gp_Ax2(gp_Pnt(0,0,Bconez),gp_DZ())
+  	p = gp_Ax2(gp_Pnt(0,0,Bconez),gp_DZ())
 	BconeLg = Part.makeCone(p,BIRLg,BCR,BIHLg)
-  bushing = BRepAlgoAPI_Fuse(bushing, BconeLg).Shape()
-  p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ())
+  	bushing = BRepAlgoAPI_Fuse(bushing, BconeLg).Shape()
+  	p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ())
 	BconeSm = Part.makeCone(p,BIRSm,BCR,BIHSm)
 	bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
 
