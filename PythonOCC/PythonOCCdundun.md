@@ -31,3 +31,7 @@ Additional links:
 https://www.opencascade.com/content/difference-between-brepalgo-and-brepalgoapi
 
 export sample: https://github.com/tpaviot/pythonocc-core/blob/master/examples/core_export_step_ap203.py
+
+http://www.geocities.jp/penguinitis2002/study/OpenFOAM/pythonOCC/pythonOCC.html
+
+https://github.com/tpaviot/pythonocc-core/blob/master/examples/core_topology_boolean.py
