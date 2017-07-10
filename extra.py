@@ -34,4 +34,4 @@ doc.cooler.Shape = coolerSHP
 __objs__=[]
 __objs__.append(FreeCAD.getDocument("cooler").getObject("cooler"))
 
-Part.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/official.step")
+Part.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/extra.step")
