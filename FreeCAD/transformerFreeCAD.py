@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# Change export location at the bottom of this document
 
 import sys
 sys.path.append("/Program Files/FreeCAD 0.16/bin") # for the system to find the FreeCAD modules
