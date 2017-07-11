@@ -2,7 +2,6 @@ Questions:
 - ANSA Properties Names
 
 To-do list:
-- PythonOCC Transformer
 - Salome Transformer
 - Update documentation
 - Mystery CAD
