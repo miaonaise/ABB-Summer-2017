@@ -49,12 +49,27 @@ for i in range(0,BIno):
 	BconeSm = BRepPrimAPI_MakeCone(p,BIRSm,BCR,BIHSm).Shape()
 	bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
 
+BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
+ltrsf = gp_Trsf()
+ltrsf.setTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
+leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
+
+mtrsf = gp_Trsf()
+mtrsf.setTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
+midBush = BRepBuilderAPI_Transform(bushing, mtrsf).Shape()
+
+rtrsf = gp_Trsf()
+rtrsf.setTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
+rightBush = BRepBuilderAPI_Transform(bushing, rtrsf).Shape()
 
 # initialize the STEP exporter
 step_writer = STEPControl_Writer()
 
 # transfer shapes and write file
 step_writer.Transfer(tank,STEPControl_AsIs)
-step_writer.Transfer(bushing,STEPControl_AsIs)
+step_writer.Transfer(leftBush,STEPControl_AsIs)
+step_writer.Transfer(midBush,STEPControl_AsIs)
+step_writer.Transfer(rightBush,STEPControl_AsIs)
+
 step_writer.Write("test.stp")
