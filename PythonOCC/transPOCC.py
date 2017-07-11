@@ -101,7 +101,7 @@ FX = float(RL)/2+RX; FYleft = RY; FYright = RY+RW; FZ = RZ+FS+FR
 p = gp_Ax2(gp_Pnt(FX,FYleft,FZ),-gp_DX())
 leftFan = BRepPrimAPI_MakeCylinder(p,FR,FD).Shape()
 p = gp_Ax2(gp_Pnt(FX,FYright,FZ),gp_DX())
-rightFan = BRepPrimAPI_MakeCylidner(p,FR,FD).Shape()
+rightFan = BRepPrimAPI_MakeCylinder(p,FR,FD).Shape()
 
 
 # initialize the STEP exporter
