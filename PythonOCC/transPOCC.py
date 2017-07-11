@@ -53,6 +53,7 @@ for i in range(0,BIno):
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
 ltrsf = gp_Trsf()
+ltrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)))
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 
