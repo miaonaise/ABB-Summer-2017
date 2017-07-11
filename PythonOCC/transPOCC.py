@@ -52,15 +52,15 @@ for i in range(0,BIno):
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
 ltrsf = gp_Trsf()
-ltrsf.setTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
+ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 
 mtrsf = gp_Trsf()
-mtrsf.setTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
+mtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
 midBush = BRepBuilderAPI_Transform(bushing, mtrsf).Shape()
 
 rtrsf = gp_Trsf()
-rtrsf.setTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
+rtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
 rightBush = BRepBuilderAPI_Transform(bushing, rtrsf).Shape()
 
 # initialize the STEP exporter
