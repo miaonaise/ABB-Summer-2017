@@ -52,11 +52,12 @@ for i in range(0,BIno):
 
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
-ltrsf = gp_Trsf()
+ltrsf = gp_Trsf() # set up transformation for leftBush
 ltrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(BA))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
+leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
 
 mtrsf = gp_Trsf()
 mtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
