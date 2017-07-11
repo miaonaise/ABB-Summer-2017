@@ -5,9 +5,11 @@ from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
 from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform
 import math
 
+
 # TANK
 TL = 20; TW = 60; TH = 30
 tank = BRepPrimAPI_MakeBox(TL, TW, TH).Shape()
+
 
 # BUSHING
 BA = 20  # angle between bushings in degrees
@@ -42,11 +44,11 @@ bushing = BRepAlgoAPI_Fuse(bushing, Bhead).Shape()
 
 BIinit = BTL+float(BIrem)/2+BIS # initial height for first cone
 for i in range(0,BIno):
-	Bconez = BIinit + i*BIHPack	
-  	p = gp_Ax2(gp_Pnt(0,0,Bconez),gp_DZ())
+	Bconez = BIinit + i*BIHPack # local height for cones
+  	p = gp_Ax2(gp_Pnt(0,0,Bconez),gp_DZ()) # placement
 	BconeLg = BRepPrimAPI_MakeCone(p,BIRLg,BCR,BIHLg).Shape()
   	bushing = BRepAlgoAPI_Fuse(bushing, BconeLg).Shape()
-  	p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ())
+  	p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ()) # placement
 	BconeSm = BRepPrimAPI_MakeCone(p,BIRSm,BCR,BIHSm).Shape()
 	bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
 
@@ -71,6 +73,26 @@ rightBush = BRepBuilderAPI_Transform(rightBush, rtrsf).Shape()
 rightBush = BRepAlgoAPI_Cut(rightBush,tank).Shape() # cut common part of bushing and tank
 
 
+# EXPANSION VESSEL
+EL = 30 # length
+ER = 5 # radius
+ESX = 8 # how much it pops out relative to tank (along x-axis)
+ESY = 4 # sep along y-axis
+ESZ = 7 # sep along z-axis
+EX = TL-(EL-ESX); EY = -(ESY+ER); EZ = TH+ESZ+ER
+p = gp_Ax2(gp_Pnt(EX,EY,EZ),gp_DX()) # placement
+expVessel = BRepPrimAPI_MakeCylinder(p,ER,EL).Shape()
+
+
+# RADIATOR
+# symmetric at y = TW/2
+RL = 12; RW = 25; RH = 15
+RS = 0 # radiator's top is RD higher than tank's top
+RX = TL; RY = float(TW-RW)/2; RZ = TH-RH+RS
+
+
+
+
 # initialize the STEP exporter
 step_writer = STEPControl_Writer()
 
@@ -79,4 +101,5 @@ step_writer.Transfer(tank,STEPControl_AsIs)
 step_writer.Transfer(leftBush,STEPControl_AsIs)
 step_writer.Transfer(midBush,STEPControl_AsIs)
 step_writer.Transfer(rightBush,STEPControl_AsIs)
+step_writer.Transfer(expVessel,STEPControl_AsIs)
 step_writer.Write("test.stp")
