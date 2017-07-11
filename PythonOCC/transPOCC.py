@@ -3,7 +3,7 @@ from OCC.gp import *
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
 from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse 
 from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
-
+import math
 
 # TANK
 TL = 20; TW = 60; TH = 30
