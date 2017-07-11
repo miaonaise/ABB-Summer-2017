@@ -10,3 +10,8 @@ surface = Part.Face(wire)
 decoy = Draft.makeWire([v1,v2,v3,v4],closed=True)
 wire = decoy.Shape
 surface = Part.Face(wire)
+
+edge1 = Part.Line(v1,v2)
+
+
+https://github.com/tpaviot/pythonocc-core/blob/master/examples/core_topology_revolved_shape.py
