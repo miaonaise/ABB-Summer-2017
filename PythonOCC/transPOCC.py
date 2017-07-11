@@ -89,8 +89,19 @@ expVessel = BRepPrimAPI_MakeCylinder(p,ER,EL).Shape()
 RL = 12; RW = 25; RH = 15
 RS = 0 # radiator's top is RD higher than tank's top
 RX = TL; RY = float(TW-RW)/2; RZ = TH-RH+RS
+p = gp_Pnt(RX,RY,RZ)
+radiator = BRepPrimAPI_MakeBox(p,RL,RW,RH).Shape()
 
 
+# FANS on radiator
+FR = 3 # radius
+FD = 2 # depth
+FS = 2 # fan's distance from radiator's bottom
+FX = float(RL)/2+RX; FYleft = RY; FYright = RY+RW; FZ = RZ+FS+FR
+p = gp_Ax2(gp_Pnt(FX,FYleft,FZ),-gp_DX())
+leftFan = BRepPrimAPI_MakeCylinder(p,FR,FD).Shape()
+p = gp_Ax2(gp_Pnt(FX,FYright,FZ),gp_DX())
+rightFan = BRepPrimAPI_MakeCylidner(p,FR,FD).Shape()
 
 
 # initialize the STEP exporter
@@ -102,4 +113,7 @@ step_writer.Transfer(leftBush,STEPControl_AsIs)
 step_writer.Transfer(midBush,STEPControl_AsIs)
 step_writer.Transfer(rightBush,STEPControl_AsIs)
 step_writer.Transfer(expVessel,STEPControl_AsIs)
+step_writer.Transfer(radiator,STEPControl_AsIs)
+step_writer.Transfer(leftFan,STEPControl_AsIs)
+step_writer.Transfer(rightFan,STEPControl_AsIs)
 step_writer.Write("test.stp")
