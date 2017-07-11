@@ -1,4 +1,3 @@
-
 from OCC.gp import *
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
 from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse 
@@ -32,6 +31,7 @@ BIHPack = BIHSm+BIHLg+2*BIS # pack length
 BIno = int(BCL//BIHPack) # number of packs fitted into core length
 BIrem = BCL % BIHPack # remainder length
 
+# building a bushing shape
 Btap = BRepPrimAPI_MakeCylinder(BOR,BTL).Shape()
 p = gp_Ax2(gp_Pnt(0,0,BTL),gp_DZ()) # placement
 Bcore = BRepPrimAPI_MakeCylinder(p,BCR,BCL).Shape()
@@ -52,20 +52,24 @@ for i in range(0,BIno):
 
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
-ltrsf = gp_Trsf() # set up transformation for leftBush
+ltrsf = gp_Trsf() # create and set up transformation for leftBush
 ltrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(BA))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
 
-mtrsf = gp_Trsf()
+mtrsf = gp_Trsf() # create and set up transformation for midBush
 mtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
 midBush = BRepBuilderAPI_Transform(bushing, mtrsf).Shape()
 
-rtrsf = gp_Trsf()
-rtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
+rtrsf = gp_Trsf() # create and set up transformation for rightBush
+rtrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(360-BA))
 rightBush = BRepBuilderAPI_Transform(bushing, rtrsf).Shape()
+rtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
+rightBush = BRepBuilderAPI_Transform(rightBush, rtrsf).Shape()
+rightBush = BRepAlgoAPI_Cut(rightBush,tank).Shape() # cut common part of bushing and tank
+
 
 # initialize the STEP exporter
 step_writer = STEPControl_Writer()
@@ -75,5 +79,4 @@ step_writer.Transfer(tank,STEPControl_AsIs)
 step_writer.Transfer(leftBush,STEPControl_AsIs)
 step_writer.Transfer(midBush,STEPControl_AsIs)
 step_writer.Transfer(rightBush,STEPControl_AsIs)
-
 step_writer.Write("test.stp")
