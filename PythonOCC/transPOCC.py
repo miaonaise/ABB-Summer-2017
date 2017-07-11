@@ -98,9 +98,9 @@ FR = 3 # radius
 FD = 2 # depth
 FS = 2 # fan's distance from radiator's bottom
 FX = float(RL)/2+RX; FYleft = RY; FYright = RY+RW; FZ = RZ+FS+FR
-p = gp_Ax2(gp_Pnt(FX,FYleft,FZ),-gp_DX())
+p = gp_Ax2(gp_Pnt(FX,FYleft,FZ),-gp_DY())
 leftFan = BRepPrimAPI_MakeCylinder(p,FR,FD).Shape()
-p = gp_Ax2(gp_Pnt(FX,FYright,FZ),gp_DX())
+p = gp_Ax2(gp_Pnt(FX,FYright,FZ),gp_DY())
 rightFan = BRepPrimAPI_MakeCylinder(p,FR,FD).Shape()
 
 
