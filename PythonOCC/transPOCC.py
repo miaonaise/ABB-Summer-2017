@@ -54,8 +54,9 @@ BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
 ltrsf = gp_Trsf()
 ltrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(BA))
-ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
+ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
+leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
 
 mtrsf = gp_Trsf()
 mtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
