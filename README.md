@@ -14,6 +14,7 @@ There is a directory for all softwares I have looked into. If you want to read m
 4. OpenSCAD
 5. PythonOCC/Open CasCade
 6. SALOME
+
 Lastly, I have summarized all results in the "Result.md" file including comparisons of softwares.
 
 Info you probably want to know before starting:
