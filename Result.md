@@ -1,7 +1,7 @@
 FreeCAD vs PythonOCC vs SALOME
 
 FreeCAD
-- object shape conversions for export
+- object shape conversions for export + messy export
 - not a complete API
 - good examples for beginners
 
