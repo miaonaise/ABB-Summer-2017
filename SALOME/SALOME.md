@@ -5,4 +5,4 @@
 ./salome shell
 
 
-latest online resources: https://github.com/kanzure/python-brlcad
+latest online documentation: http://www.salome-platform.org/user-section/documentation/current-release
