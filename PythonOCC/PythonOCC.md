@@ -22,15 +22,12 @@ Modules I have used for my geometry:
 - [gp](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.gp.html) For defining placement
 - [STEPControl](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.STEPControl.html#module-OCC.STEPControl) For exporting into STEP files
 
-My Essential Script (things I usually need in the script):
+My Script Example:
 ```python
 # Imports
 from OCC.gp import * # module for defining placements, directions etc
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox # make box function from BRepPrimAPI (module for primitive objects)
-from OCC.BRepAlgoAPI import [somefunction] # module for booleon operations
 from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs # for exporting in STEP format
-from OCC.BRepBuilderAPI import [somefunction] # module for building things
-import math
 
 placement = gp_Pnt(2,0,0)
 box = BRepPrimAPI_MakeBox(p, 10, 10, 10).Shape() # box with size 10x10x10 shifted two units up x-axis.
