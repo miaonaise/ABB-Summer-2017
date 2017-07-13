@@ -1,7 +1,8 @@
 Questions:
-- ANSA Properties Names
+- Object and variabel name for this mystery?
 
 To-do list:
+- EFI cons and faces order
 - Salome Transformer
 - Update documentation
 - OpenFOAM
