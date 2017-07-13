@@ -11,7 +11,7 @@ PythonOCC:
       - Usage: (in anaconda prompt, navigate to file directory and run "python docname.py")
   - Compile yourself: https://github.com/tpaviot/pythonocc-core/blob/master/INSTALL.md
  
-## Creating geometry
+## Creating script
 API Documentation: https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/
 
 Since PythonOCC is based on Open CASCADE Technology modules, one can read their documentation which explains the modules in more detail: https://www.opencascade.com/doc/occt-6.9.1/refman/html/index.html
