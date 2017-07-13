@@ -1,6 +1,6 @@
 Questions:
 - Object and variable name for this mystery?
-- what do the pink dots mean?
+- what do the pink dots mean in ANSA?
 
 To-do list:
 - EFI cons and faces order - read STEP file
