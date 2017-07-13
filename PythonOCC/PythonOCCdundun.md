@@ -2,8 +2,6 @@
 https://groups.google.com/forum/#!forum/pythonocc
 
 ## Installation
-
-Open CASCADE: https://www.opencascade.com/content/latest-release
 PythonOCC:
   - Precompiled version
       - Miniconda - https://conda.io/miniconda.html
