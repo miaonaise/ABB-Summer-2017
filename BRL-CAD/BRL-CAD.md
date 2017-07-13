@@ -15,6 +15,5 @@ To script with Python, one must use "python-brlcad". _python-brlcad is an on-goi
 Installing instructions and examples of python scripts using BRL-CAD can be found here: https://github.com/kanzure/python-brlcad
 
 Reasons I did not continue with python-brlcad:
-- I failed to install it on windows - failed to provide gcc during installation.
-- It is not easy to test if the coding is right compared to FreeCAD
-- FreeCAD's documentation is easier to use as it is not compiled into one big pdf file. 
+- I failed to install python-brlcad on windows - failed to provide gcc during installation.
+- Difficult to navigate through documentatino as it is compiled into one big pdf file. 
