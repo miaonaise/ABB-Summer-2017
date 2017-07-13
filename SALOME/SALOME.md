@@ -5,4 +5,4 @@
 ./salome shell
 
 
-http://docs.salome-platform.org/latest/gui/KERNEL/KERNEL_Services.html
+latest online resources: https://github.com/kanzure/python-brlcad
