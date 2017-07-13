@@ -23,7 +23,7 @@ Lastly, you will find evaluation and comparisons of softwares FreeCAD, PythonOCC
 
 Info you probably want to know before starting:
 - All softwares investigated have Python API for scripting geometry. (i.e. technically speaking, they are all capable of fulfilling the aim.)
-- I have achieved the aim with the following softwares: FreeCAD, PythonOCC
+- I have achieved the aim with the following softwares: FreeCAD, PythonOCC and SALOME.
 - Only FreeCAD and PythonOCC has python as its default scripting language. The others have a different default scripting language.
 - FreeCAD, PythonOCC and SALOME are all based on the Open CASCADE library.
 - ANSA supporter recommends not to import geometry in STL files in ANSA. 
