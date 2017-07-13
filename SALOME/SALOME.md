@@ -1,6 +1,7 @@
 
 
 ./salome -t (start running salome with gui)
+
 ./salome shell
 
 
