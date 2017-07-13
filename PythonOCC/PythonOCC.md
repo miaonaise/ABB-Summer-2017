@@ -26,7 +26,7 @@ My Essential Script (things I usually need in the script):
 ```python
 # Imports
 from OCC.gp import * # module for defining placements, directions etc
-from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone # module for primitive objects
+from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox # module for primitive objects
 from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse # module for booleon operations
 from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs # module for exporting in STEP format
 from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform # module for building things
