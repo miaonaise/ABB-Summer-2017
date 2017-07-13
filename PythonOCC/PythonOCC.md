@@ -22,7 +22,7 @@ Modules I have used for my geometry:
 - [gp](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.gp.html) For defining placement
 - [STEPControl](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.STEPControl.html#module-OCC.STEPControl) For exporting into STEP files
 
-My Script Example:
+My Simple Script Example:
 ```python
 # Imports
 from OCC.gp import * # module for defining placements, directions etc
