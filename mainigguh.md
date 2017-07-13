@@ -1,9 +1,10 @@
 Questions:
-- Object and variabel name for this mystery?
+- Object and variable name for this mystery?
+- what do the pink dots mean?
 
 To-do list:
-- EFI cons and faces order
-- Salome Transformer
+- EFI cons and faces order - read STEP file
+- Finish Salome Transformer
 - Update documentation
 - OpenFOAM
   - http://foam.sourceforge.net/docs/Guides-a4/OpenFOAMUserGuide-A4.pdf
