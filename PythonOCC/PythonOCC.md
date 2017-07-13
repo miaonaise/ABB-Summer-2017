@@ -23,17 +23,25 @@ Modules I have used for my geometry:
 - [STEPControl](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.STEPControl.html#module-OCC.STEPControl) For exporting into STEP files
 
 My Essential Script (things I usually need in the script):
-´´´[python]
-# imports 
-from OCC.gp import *
-from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
-from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse 
-from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
-from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform
+```python
+# Imports
+from OCC.gp import * # module for defining placements, directions etc
+from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone # module for primitive objects
+from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse # module for booleon operations
+from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs # module for exporting in STEP format
+from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform # module for building things
 import math
-´´´
 
-tank = BRepPrimAPI_MakeBox(TL, TW, TH).Shape()
+placement = gp_Pnt(2,0,0)
+box = BRepPrimAPI_MakeBox(p, 10, 10, 10).Shape() # box with size 10x10x10 shifted two units up x-axis.
+
+# initialize the STEP exporter
+step_writer = STEPControl_Writer()
+
+# transfer shapes and write file
+step_writer.Transfer(box,STEPControl_AsIs)
+step_writer.Write("final.stp")
+```
 
 Additional links/examples:
 
