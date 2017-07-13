@@ -4,7 +4,7 @@ https://groups.google.com/forum/#!forum/pythonocc
 ## Installation
 PythonOCC:
   - Precompiled version
-      - Miniconda - https://conda.io/miniconda.html
+      - Install miniconda - https://conda.io/miniconda.html
       - Run in Anaconda prompt: conda install -c conda-forge -c dlr-sc -c pythonocc -c oce pythonocc-core==0.18 python=***2 OR 3***
       - Usage: (in anaconda prompt, navigate to file directory and run "python docname.py")
   - Compile yourself: https://github.com/tpaviot/pythonocc-core/blob/master/INSTALL.md
@@ -22,6 +22,18 @@ Modules I have used for my geometry:
 - [gp](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.gp.html) For defining placement
 - [STEPControl](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.STEPControl.html#module-OCC.STEPControl) For exporting into STEP files
 
+My Essential Script (things I usually need in the script):
+´´´[python]
+# imports 
+from OCC.gp import *
+from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
+from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse 
+from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
+from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform
+import math
+´´´
+
+tank = BRepPrimAPI_MakeBox(TL, TW, TH).Shape()
 
 Additional links/examples:
 
