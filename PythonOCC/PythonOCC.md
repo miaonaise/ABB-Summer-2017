@@ -41,7 +41,7 @@ step_writer.Transfer(box,STEPControl_AsIs)
 step_writer.Write("final.stp")
 ```
 
-Additional links/examples:
+Additional links/examples (very optional):
 
 https://www.opencascade.com/content/difference-between-brepalgo-and-brepalgoapi
 
