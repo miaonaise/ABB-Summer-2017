@@ -5,6 +5,7 @@ Questions:
 To-do list:
 - EFI cons and faces order - read STEP file
 - Shape names STEP file (export)
+- To not export through compounds SALOME?
 - Update documentation
 
 
