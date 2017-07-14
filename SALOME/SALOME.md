@@ -6,13 +6,21 @@ Download and Install Universal binaries for Linux: http://www.salome-platform.or
     % Salome-V8_2_0-univ_public.run
 
 To launch Salome, go to the Salome "appli" folder:
-```cd salome\appli_V8_2_0```
+```
+cd salome\appli_V8_2_0
+```
 Launch with interface:
-    ./salome
+```
+./salome
+```
 Launch without interface:
-    ./salome -t
+```
+./salome -t
+```
 Open salome shell:
-    ./salome shell
+```
+./salome shell
+```
 
 
 
