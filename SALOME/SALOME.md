@@ -11,13 +11,13 @@ To launch Salome, go to the Salome "appli" folder:
 ```cd salome\appli_V8_2_0```
 
 Launch with interface:
-```% salome```
+```./salome```
 
 Launch without interface:
-```% salome -t```
+```./salome -t```
 
 Open salome shell:
-```% salome shell```
+```./salome shell```
 
 For running your script, you want to launch without interface and then open the salome shell. 
 
