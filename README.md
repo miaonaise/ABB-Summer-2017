@@ -25,6 +25,10 @@ Lastly, you will find evaluation and comparisons of softwares FreeCAD, PythonOCC
 - Only FreeCAD, PythonOCC and SALOME has python as its default scripting language. The others have a different default scripting language.
 - FreeCAD, PythonOCC and SALOME are all based on the Open CASCADE library.
 - ANSA supporter recommends not to import geometry in STL files in ANSA. 
+- When importing STEP/IGES files into ANSA, change settings in ANSA for better translator:
+  - Settings>Translators>General and set the field for the translation of neutral files to CT.
+  - Once you will use CT for the translation mind to de-activate the 'Heal Model' in case it is activated. 
+  - 'Heal Model' field is under All format>Neutral files with CT>Topology.
 
 ##
 Please contact me via e-mail (julia970906@gmail.com) if you have any suggestions on improving my documents.
