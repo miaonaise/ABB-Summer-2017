@@ -2,7 +2,6 @@ from OCC.gp import *
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
 from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse 
 from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
-from OCC.STEPCAFControl import STEPCAFControl_Writer
 from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform
 import math
 
@@ -106,7 +105,7 @@ rightFan = BRepPrimAPI_MakeCylinder(p,FR,FD).Shape()
 
 
 # initialize the STEP exporter
-step_writer = STEPCAFControl_Writer()
+step_writer = STEPControl_Writer()
 
 # transfer shapes and write file
 step_writer.Transfer(tank,STEPControl_AsIs)
@@ -117,5 +116,4 @@ step_writer.Transfer(expVessel,STEPControl_AsIs)
 step_writer.Transfer(radiator,STEPControl_AsIs)
 step_writer.Transfer(leftFan,STEPControl_AsIs)
 step_writer.Transfer(rightFan,STEPControl_AsIs)
-step_writer.SetNameMode(True)
 step_writer.Write("final.stp")
