@@ -13,11 +13,11 @@ The softwares I have looked into are listed down below. They each have their own
 - PythonOCC
 - SALOME
 
-In _FreeCAD.md_, _PythonOCC.md_ and _SALOME.md_, you will find installation instructions, API documentation sources, and how to run your python script.
+In **FreeCAD.md**, **PythonOCC.md** and **SALOME.md**, you will find installation instructions, API documentation sources, and how to run your python script.
 
-In _Onshape.md_, _BRL-CAD.md_ and _OpenSCAD.md_, you will find description of the software and reasons why they are not the ones for achieving the aim.  
+In **Onshape.md**, **BRL-CAD.md** and **OpenSCAD.md**, you will find description of the software and reasons why they are not the ones for achieving the aim.  
 
-Lastly, you will find evaluation and comparisons of softwares FreeCAD, PythonOCC and SALOME in the _Result.md_ file in the ROOT directory.
+Lastly, you will find evaluation and comparisons of softwares FreeCAD, PythonOCC and SALOME in the **Result.md** file in the ROOT directory.
 
 Info you probably want to know before starting:
 - All softwares investigated have Python API for scripting geometry. (i.e. technically speaking, they are all capable of fulfilling the aim.)
