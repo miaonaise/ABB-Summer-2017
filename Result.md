@@ -20,11 +20,7 @@ PythonOCC
 
 
 
-3 | FreeCAD | PythonOCC | SALOME
---- | --- | --- | ---
-API Documentation | - Online - does not cover entire library.  | **nicely** | 23
-1 | 2 | 3 | 234
-
+https://docs.google.com/spreadsheets/d/1vHLevdy62Dbzmq1BHO2oLwCfVPU-tXW50nIQcuVB0mo/edit?usp=sharing
 
 
 
