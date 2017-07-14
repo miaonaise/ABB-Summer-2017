@@ -17,7 +17,7 @@ Launch without interface:
 ```
 ./salome -t
 ```
-Open salome shell:
+Open salome shell for running your code:
 ```
 ./salome shell
 ```
