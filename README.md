@@ -1,8 +1,6 @@
 # ABB-Summer-2017
 Welcome to my repository. In this repository you will find the work I have completed during my 4 week summer job at ABB Corporate Research Center in Västerås, Sweden. 
 
----THIS DOCUMENT AND REPOSITORY IS UNDER CONSTRUCTION---
-
 ## TASK DESCRIPTION
 The aim is to produce a parametrized geometry in a script file by using Python API/modules provided by a free CAD software. The task was to research which softwares would be able to fulfill the aim and then compare and evaluate their API/modules.
 
