@@ -51,3 +51,5 @@ http://www.geocities.jp/penguinitis2002/study/OpenFOAM/pythonOCC/pythonOCC.html
 https://github.com/tpaviot/pythonocc-core/blob/master/examples/core_topology_boolean.py
 
 https://www.opencascade.com/content/how-add-names-step-or-iges-file
+
+https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.STEPCAFControl.html#module-OCC.STEPCAFControl
