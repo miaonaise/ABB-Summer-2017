@@ -4,8 +4,12 @@ Questions:
 
 To-do list:
 - EFI cons and faces order - read STEP file
-- Finish Salome Transformer
+- Shape names STEP file (export)
 - Update documentation
+
+
+
+
 - OpenFOAM
   - http://foam.sourceforge.net/docs/Guides-a4/OpenFOAMUserGuide-A4.pdf
   - https://cfd.direct/openfoam/user-guide/
