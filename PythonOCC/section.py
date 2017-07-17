@@ -59,6 +59,7 @@ ltrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(BA))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
+leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
 common = BRepAlgoAPI_Common(leftBush,tank).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,common).Shape() # cut common part of bushing and tank
 tank = BRepAlgoAPI_Cut(tank,common).Shape()
@@ -75,6 +76,7 @@ rtrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(360-BA))
 rightBush = BRepBuilderAPI_Transform(bushing, rtrsf).Shape()
 rtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
 rightBush = BRepBuilderAPI_Transform(rightBush, rtrsf).Shape()
+rightBush = BRepAlgoAPI_Cut(rightBush,tank).Shape() # cut common part of bushing and tank
 common = BRepAlgoAPI_Common(rightBush,tank).Shape()
 rightBush = BRepAlgoAPI_Cut(rightBush,common).Shape() # cut common part of bushing and tank
 tank = BRepAlgoAPI_Cut(tank,common).Shape()
