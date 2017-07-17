@@ -1,6 +1,6 @@
 from OCC.gp import *
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
-from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse, BRepAlgoAPI_Section
+from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse, BRepAlgoAPI_Common
 from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
 from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform, BRepBuilderAPI_MakeWire, BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeFace
 import math
@@ -59,23 +59,25 @@ ltrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(BA))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
-leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
-
-sections = BRepAlgoAPI_Section(leftBush,tank).Shape()
-wire = BRepBuilderAPI_MakeWire(sections).Wire()
-face = BRepBuilderAPI_MakeFace(wire).Face()
-leftBush = BRepAlgoAPI_Cut(leftBush,face).Shape()
+common = BRepAlgoAPI_Common(leftBush,tank).Shape()
+leftBush = BRepAlgoAPI_Cut(leftBush,common).Shape() # cut common part of bushing and tank
+tank = BRepAlgoAPI_Cut(tank,common).Shape()
 
 mtrsf = gp_Trsf() # create and set up transformation for midBush
 mtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
 midBush = BRepBuilderAPI_Transform(bushing, mtrsf).Shape()
+common = BRepAlgoAPI_Common(midBush,tank).Shape()
+midBush = BRepAlgoAPI_Cut(midBush,common).Shape() # cut common part of bushing and tank
+tank = BRepAlgoAPI_Cut(tank,common).Shape()
 
 rtrsf = gp_Trsf() # create and set up transformation for rightBush
 rtrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(360-BA))
 rightBush = BRepBuilderAPI_Transform(bushing, rtrsf).Shape()
 rtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
 rightBush = BRepBuilderAPI_Transform(rightBush, rtrsf).Shape()
-rightBush = BRepAlgoAPI_Cut(rightBush,tank).Shape() # cut common part of bushing and tank
+common = BRepAlgoAPI_Common(rightBush,tank).Shape()
+rightBush = BRepAlgoAPI_Cut(rightBush,common).Shape() # cut common part of bushing and tank
+tank = BRepAlgoAPI_Cut(tank,common).Shape()
 
 
 # EXPANSION VESSEL
