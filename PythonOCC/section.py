@@ -60,7 +60,7 @@ leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
-common = BRepAlgoAPI_Common(leftBush,tank).Shape()
+common = BRepAlgoAPI_Common(leftBush,tank).Face()
 leftBush = BRepAlgoAPI_Cut(leftBush,common).Shape() # cut common part of bushing and tank
 tank = BRepAlgoAPI_Cut(tank,common).Shape()
 
