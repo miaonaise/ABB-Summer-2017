@@ -1,6 +1,6 @@
 from OCC.gp import *
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
-from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse, BRepAlgoAPI_Common
+from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse, BRepAlgoAPI_Common, BRepAlgoAPI_Section
 from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
 from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform, BRepBuilderAPI_MakeWire, BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeFace
 import math
@@ -60,7 +60,11 @@ leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
-common = BRepAlgoAPI_Common(leftBush,tank).Face()
+
+meh = BRepAlgoAPI_Section(leftBush,tank)
+print(meh)
+
+common = BRepAlgoAPI_Common(leftBush,tank).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,common).Shape() # cut common part of bushing and tank
 tank = BRepAlgoAPI_Cut(tank,common).Shape()
 
