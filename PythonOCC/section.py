@@ -61,8 +61,11 @@ ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
 
-meh = BRepAlgoAPI_Section(leftBush,tank).Shape()
-leftBush = BRepAlgoAPI_Cut(leftBush,meh).Shape()
+meh = BRepAlgoAPI_Section(leftBush,tank)
+meh.Approximation(True)
+meh.Build()
+hoho = meh.Shape()
+leftBush = BRepAlgoAPI_Cut(leftBush,hoho).Shape()
 
 mtrsf = gp_Trsf() # create and set up transformation for midBush
 mtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
