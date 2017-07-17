@@ -62,7 +62,7 @@ leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
 
 sections = BRepAlgoAPI_Section(leftBush,tank)
-edge = sections[0].Edge()
+edge = sections.Edge()
 wire = BRepBuilderAPI_MakeWire(edge).Wire()
 face = BRepBuilderAPI_MakeFace(wire).Face()
 leftBush = BRepAlgoAPI_Cut(leftBush,face).Shape()
