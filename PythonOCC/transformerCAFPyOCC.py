@@ -1,11 +1,18 @@
 from OCC.gp import *
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
 from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse 
-from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
 from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform
-from OCC.STEPCAFControl import STEPCAFControl_Writer
 import math
 
+from OCC.TCollection import TCollection_ExtendedString
+from OCC.TDocStd import Handle_TDocStd_Document
+from OCC.XCAFApp import XCAFApp_Application
+from OCC.XCAFDoc import XCAFDoc_DocumentTool_ShapeTool
+from OCC.STEPCAFControl import STEPCAFControl_Writer
+from OCC.IFSelect import IFSelect_RetDone
+from OCC.TDF import TDF_LabelSequence
+from OCC.XSControl import XSControl_WorkSession
+from OCC.STEPControl import STEPControl_AsIs
 
 # TANK
 TL = 20; TW = 60; TH = 30
@@ -105,16 +112,23 @@ p = gp_Ax2(gp_Pnt(FX,FYright,FZ),gp_DY())
 rightFan = BRepPrimAPI_MakeCylinder(p,FR,FD).Shape()
 
 
-# initialize the STEP exporter
-step_writer = STEPCAFControl_Writer()
 
-# transfer shapes and write file
-step_writer.Transfer(tank,STEPControl_AsIs,0)
-step_writer.Transfer(leftBush,STEPControl_AsIs,0)
-step_writer.Transfer(midBush,STEPControl_AsIs,0)
-step_writer.Transfer(rightBush,STEPControl_AsIs,0)
-step_writer.Transfer(expVessel,STEPControl_AsIs,0)
-step_writer.Transfer(radiator,STEPControl_AsIs,0)
-step_writer.Transfer(leftFan,STEPControl_AsIs,0)
-step_writer.Transfer(rightFan,STEPControl_AsIs,0)
-step_writer.Write("finalCAF.stp")
+# initialisation
+h_doc = Handle_TDocStd_Document()
+assert(h_doc.IsNull())
+# create the application
+app = XCAFApp_Application.GetApplication().GetObject()
+app.NewDocument(TCollection_ExtendedString("MDTV-CAF"),h_doc)
+# get root assembly
+doc = h_doc.GetObject()
+h_shape_tool = XCAFDoc_DocumentTool_ShapeTool(doc.Main())
+shape_tool = h_shape_tool.GetObject()
+#add shape
+shp_label = shape_tool.AddShape(tank)
+
+
+WS = XSControl_WorkSession()
+writer = STEPCAFControl_Writer(WS.GetHandle(),False)
+writer.Transfer(h_doc,STEPControl_AsIs)
+writer.Write("transformerCAF.stp")
+
