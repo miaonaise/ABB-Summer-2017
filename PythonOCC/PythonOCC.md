@@ -31,7 +31,7 @@ from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox # make box function from BRepPri
 from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs # for exporting in STEP format
 
 placement = gp_Pnt(2,0,0)
-box = BRepPrimAPI_MakeBox(p, 10, 10, 10).Shape() # box with size 10x10x10 shifted two units up x-axis.
+box = BRepPrimAPI_MakeBox(placement, 10, 10, 10).Shape() # box with size 10x10x10 shifted two units up x-axis.
 
 # initialize the STEP exporter
 step_writer = STEPControl_Writer()
