@@ -5,7 +5,7 @@ Questions:
 To-do list:
 - EFI
   - how are the cons and faces read?
-  - possible to identify shared surface and remove both of them?
+  - possible to identify shared surface and remove both or/and one of them?
 - Shape names STEP file (export)
 
 - Add better description
