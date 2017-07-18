@@ -62,7 +62,7 @@ leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
 
 meh = BRepAlgoAPI_Section(leftBush,tank).Shape()
-
+heh = topods()
 leftBush = BRepAlgoAPI_Cut(leftBush,meh).Shape()
 
 mtrsf = gp_Trsf() # create and set up transformation for midBush
