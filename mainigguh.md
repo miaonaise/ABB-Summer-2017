@@ -1,13 +1,14 @@
 Questions:
 - Object and variable name for this mystery?
-- what do the pink dots mean in ANSA?
-- List of faces n cons
+
 
 To-do list:
-- EFI cons and faces order - read STEP file
+- EFI
+  - how are the cons and faces read?
+  - possible to identify shared surface and remove both of them?
 - Shape names STEP file (export)
-- To not export through compounds SALOME?
-- SALOME export destination
+
+- Add better description
 - Update documentation
 
 
