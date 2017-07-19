@@ -28,7 +28,7 @@ For scripting 3D surface geometry go to Geometry Documentation - User Documentat
 
 Path for geometry script examples in your downloaded package: salome/Salome-V8_2_0-univ/modules/GEOM_V8_2_0/bin/salome
 
-My Simple Script Example:
+My Personal Script Template:
 ```python
 # Imports
 import salome
