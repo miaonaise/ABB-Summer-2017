@@ -63,8 +63,7 @@ midBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2,TH))
 midBushSHP = midBushSHP.Shells[0]
 common=midBushSHP.common(tankSHP)
 midBushSHP = midBushSHP.cut(common)
-doc.addObject("Part::Feature","midBush")
-doc.midBush.Shape = midBushSHP
+
 
 leftBushSHP.rotate(Base.Vector(0,0,0),Base.Vector(1,0,0),BA)
 leftBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
@@ -78,10 +77,13 @@ rightBushSHP = rightBushSHP.cut(tankSHP)
 doc.addObject("Part::Feature","rightBush")
 doc.rightBush.Shape = rightBushSHP
 
+
 tankSHP = tankSHP.Shells[0]
 tankSHP = tankSHP.cut(common)
-doc.addObject("Part::Feature","tank")
-doc.tank.Shape = tankSHP
+
+compSHP = Part.makeCompound([tankSHP,midBushSHP])
+doc.addObject("Part::Feature","comp")
+doc.comp.Shape = compSHP
 
 # EXPANSION VESSEL
 EL = 30 # length
@@ -119,8 +121,7 @@ doc.rightFan.Shape = rightFanSHP
 
 
 __objs__=[]
-__objs__.append(FreeCAD.getDocument("transformer").getObject("tank"))
-__objs__.append(FreeCAD.getDocument("transformer").getObject("midBush"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("comp"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("leftBush"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("rightBush"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("expVessel"))
