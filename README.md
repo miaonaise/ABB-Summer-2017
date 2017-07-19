@@ -15,7 +15,7 @@ The softwares I have looked into are listed down below. They each have their own
 
 In **FreeCAD.md**, **PythonOCC.md** and **SALOME.md**, you will find installation instructions, API documentation sources and how to run your python script.
 
-In **Onshape.md**, **BRL-CAD.md** and **OpenSCAD.md**, you will find description of the software and reasons why they are not the ones for achieving the aim.  
+In **Onshape.md**, **BRL-CAD.md** and **OpenSCAD.md**, you will find a description of the software and its limitations for achieving the aim.
 
 Lastly, you will find evaluation and comparisons of softwares FreeCAD, PythonOCC and SALOME in the **Result.md** file in the ROOT directory.
 
