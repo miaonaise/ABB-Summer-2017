@@ -26,7 +26,7 @@ Latest updated documentation: http://www.salome-platform.org/user-section/docume
 
 For scripting 3D surface geometry go to Geometry Documentation - User Documentation
 
-Geometry script examples path: salome/Salome-V8_2_0-univ/modules/GEOM_V8_2_0/bin/salome
+Path for geometry script examples in your downloaded package: salome/Salome-V8_2_0-univ/modules/GEOM_V8_2_0/bin/salome
 
 My Simple Script Example:
 ```python
@@ -46,4 +46,4 @@ box = geompy.MakeBoxDXDYDZ(10,10,10)
 # Export
 geompy.Export( geom, "/tmp/myBox.step", "STEP")
 ```
-It is currently exported in /tmp directory in the computer. 
+It is currently exported in /tmp directory in the computer. I do not know how to export to another directory.
