@@ -41,9 +41,9 @@ Part.export(__objs__,"C:/Users/XJULLI/Desktop/testBox.step")
 ```
 One can also run this script within the FreeCAD application by opening the python file in FreeCAD. 
 
-Overview of the Part Module: https://www.freecadweb.org/wiki/Part_Module
+Script Tutorial: https://www.freecadweb.org/wiki/Topological_data_scripting
 
-How to script creating and modifying Part objects: https://www.freecadweb.org/wiki/Topological_data_scripting
+Overview of the Part Module: https://www.freecadweb.org/wiki/Part_Module
 
 Part API: https://www.freecadweb.org/wiki/Part_API
 
