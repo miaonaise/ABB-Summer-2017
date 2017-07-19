@@ -15,7 +15,7 @@ API Documentation: https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/ap
 
 Since PythonOCC is based on Open CASCADE Technology (OCCT) modules, one can refer moduels to their documentation which explains the modules in more detail: https://www.opencascade.com/doc/occt-6.9.1/refman/html/index.html
 
-Or begin with the OCCT tutorial to learn how to use some modules: https://www.opencascade.com/doc/occt-7.0.0/overview/html/occt__tutorial.html
+OCCT tutorial (learn how to use some modules): https://www.opencascade.com/doc/occt-7.0.0/overview/html/occt__tutorial.html
 
 Script examples: https://github.com/tpaviot/pythonocc-core/tree/master/examples
 
