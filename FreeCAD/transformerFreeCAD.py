@@ -13,31 +13,31 @@ doc = App.newDocument("transformer")
 # L,W,H defined along x,y,z axis respectively
 
 # TANK
-TL = 20; TW = 60; TH = 30 # tank dimension
+TL = 20; TW = 60; TH = 30 # size dimension
 tankSHP = Part.makeBox(TL,TW,TH)
 doc.addObject("Part::Feature","tank")
 doc.tank.Shape = tankSHP
 
 # BUSHING
-# creating bushing shape
-BH = 40 # bush height/total length
-BHL = 4 # head length
-BTL = 5 # tap length
+# variables
+BH = 40          # bush height/total length
+BHL = 4          # head length
+BTL = 5          # tap length
 BCL = BH-BHL-BTL # core length
-BOR = 3 # outer radius
-BCR = 2.7 # core radius
+BOR = 3          # outer radius
+BCR = 2.7        # core radius
 
-BIRSm = 3.5 # radius of small CI
-BIHSm = 0.5 # height of small CI
-BIRLg = 4 # radius of large CI
+BIRSm = 3.5                      # radius of small CI
+BIHSm = 0.5                      # height of small CI
+BIRLg = 4                        # radius of large CI
 BIHLg = float(BIRLg*BIHSm)/BIRSm # height of large CI (proportional)
-BIS = 0.5 # seperation between CIs
+BIS = 0.5                        # seperation between CIs
 
-BIHPack = BIHSm+BIHLg+2*BIS #pack length
-BIno = int(BCL//BIHPack) # number of packs fitted into core length
-BIrem = BCL % BIHPack # remainder length
+BIHPack = BIHSm+BIHLg+2*BIS # pack length
+BIno = int(BCL//BIHPack)    # number of packs fitted into core length
+BIrem = BCL % BIHPack       # remainder length
 
-
+# building bushing shapes
 Btap = Part.makeCylinder(BOR,BTL)
 Bcore = Part.makeCylinder(BCR,BCL,Base.Vector(0,0,BTL))
 Bhead = Part.makeCylinder(BOR,BHL,Base.Vector(0,0,BTL+BCL))
@@ -45,6 +45,7 @@ midBushSHP = Btap.fuse(Bcore).fuse(Bhead)
 leftBushSHP = Btap.fuse(Bcore).fuse(Bhead)
 rightBushSHP = Btap.fuse(Bcore).fuse(Bhead)
 
+# adding composite insulators to shape
 BIinit = BTL+float(BIrem)/2+BIS # initial height for first cone
 for i in range(0,BIno):
 	Bconez = BIinit + i*BIHPack	
@@ -54,13 +55,11 @@ for i in range(0,BIno):
 	leftBushSHP = leftBushSHP.fuse(BconeLg).fuse(BconeSm)
 	rightBushSHP = rightBushSHP.fuse(BconeLg).fuse(BconeSm)
 
-
 # creating bushing objects
-BA = 20  # angle between bushings in degrees
+BA = 20 # angle between bushings in degrees
 BS = 10 # seperation distance between two bushings
 BIn = 3 # how far in bushing comes from the y-axis
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
-
 
 midBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2,TH))
 doc.addObject("Part::Feature","midBush")
@@ -79,10 +78,9 @@ doc.addObject("Part::Feature","rightBush")
 doc.rightBush.Shape = rightBushSHP
 
 
-
 # EXPANSION VESSEL
 EL = 30 # length
-ER = 5 # radius
+ER = 5  # radius
 ESX = 8 # pop out length alonng x-axis
 ESY = 4 # sep along y-axis
 ESZ = 7 # sep along z-axis
@@ -94,9 +92,10 @@ doc.expVessel.Shape = expVesselSHP
 
 # RADIATOR
 # symmetric at y = TW/2
-RL = 12; RW = 25; RH = 15
-RS = 0 # radiator's top is RD higher than tank's top
-RX = TL; RY = float(TW-RW)/2; RZ = TH-RH+RS
+RL=12; RW=25; RH=15 # size dimension
+RS = 0              # radiator's top is RD higher than tank's top
+Rgap = 1            # gap between radiator and tank
+RX = TL+Rgap; RY = float(TW-RW)/2; RZ = TH-RH+RS
 radiatorSHP = Part.makeBox(RL,RW,RH,Base.Vector(RX,RY,RZ))
 doc.addObject("Part::Feature","radiator")
 doc.radiator.Shape = radiatorSHP
@@ -126,4 +125,4 @@ __objs__.append(FreeCAD.getDocument("transformer").getObject("leftFan"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("rightFan"))
 
 # filetypes: step, iges, stl
-Part.export(__objs__,"official.step")
+Part.export(__objs__,"transformerFreeCAD.step")
