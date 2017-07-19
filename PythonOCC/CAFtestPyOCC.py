@@ -94,9 +94,10 @@ expVessel = BRepPrimAPI_MakeCylinder(p,ER,EL).Shape()
 
 # RADIATOR
 # symmetric at y = TW/2
-RL = 12; RW = 25; RH = 15
-RS = 0 # radiator's top is RD higher than tank's top
-RX = TL; RY = float(TW-RW)/2; RZ = TH-RH+RS
+RL = 12; RW = 25; RH = 15 # size dimension
+RS = 0                    # radiator's top is RD higher than tank's top
+Rgap = 1                  # gap between radiator and tank
+RX = TL+Rgap; RY = float(TW-RW)/2; RZ = TH-RH+RS
 p = gp_Pnt(RX,RY,RZ)
 radiator = BRepPrimAPI_MakeBox(p,RL,RW,RH).Shape()
 
