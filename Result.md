@@ -1,7 +1,6 @@
 ## FreeCAD vs PythonOCC vs SALOME
 
 **COMPARISON CHART IN THE LINK BELOW:**
-
 https://docs.google.com/spreadsheets/d/1vHLevdy62Dbzmq1BHO2oLwCfVPU-tXW50nIQcuVB0mo/edit?usp=sharing
 ##
 I find working in all environments comfortable. I like how PythonOCC library totally corresponds to the OCCT library and its examples provided by Thomas Paviot. I can always use FreeCAD simple examples and find the same function in PythonOCC or vice versa. SALOME has a very nice documentation and a nice forum, however it is has the least convenient method for running the scripts especially if one uses windows. 
