@@ -10,4 +10,4 @@ However, PythonOCC's minimalized documentation can be difficult to understand. I
 
 Overall, PythonOCC is the best one in my opinion. It has most functionalities and therefore most potential. The limitation of the documentation can be dealed with by understanding the modules through Open Cascade Technology's (OCCT) documention. Second place goes to FreeCAD as it is the easiest one to begin with. 
 
-Last words, there is no groundbreaking difference between these three softwares. They can all do what you want to do, but they all require you to go through frustration of not knowing how to do.
+Lastly, there is no big difference between these three softwares. They can all do what you want to do, but they all require you to go through frustration of not knowing how to do.
