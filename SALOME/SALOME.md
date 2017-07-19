@@ -46,4 +46,4 @@ box = geompy.MakeBoxDXDYDZ(10,10,10)
 # Export
 geompy.Export( geom, "/tmp/myBox.step", "STEP")
 ```
-It is currently exported in /tmp directory in the computer. I do not know how to export to another directory.
+It is currently exported in /tmp directory in the computer. I do not know how to modify export destination.
