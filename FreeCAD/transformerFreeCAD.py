@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import sys
 sys.path.append("/Program Files/FreeCAD 0.16/bin") # for the system to find the FreeCAD modules
 
@@ -17,6 +16,7 @@ TL = 20; TW = 60; TH = 30 # size dimension
 tankSHP = Part.makeBox(TL,TW,TH)
 doc.addObject("Part::Feature","tank")
 doc.tank.Shape = tankSHP
+
 
 # BUSHING
 # variables
@@ -111,7 +111,6 @@ doc.leftFan.Shape = leftFanSHP
 rightFanSHP = Part.makeCylinder(FR,FD,Base.Vector(FX,FYright,FZ),Base.Vector(0,1,0))
 doc.addObject("Part::Feature","rightFan")
 doc.rightFan.Shape = rightFanSHP
-
 
 
 __objs__=[]
