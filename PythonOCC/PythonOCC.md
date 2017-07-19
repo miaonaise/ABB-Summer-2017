@@ -17,7 +17,7 @@ Since PythonOCC is based on Open CASCADE Technology (OCCT) modules, one can refe
 
 OCCT tutorial (learn how to use some modules): https://www.opencascade.com/doc/occt-7.0.0/overview/html/occt__tutorial.html
 
-Script examples: https://github.com/tpaviot/pythonocc-core/tree/master/examples
+PythonOCC Script examples: https://github.com/tpaviot/pythonocc-core/tree/master/examples
 
 Modules I have used for my geometry:
 - [BRepPrimAPI](https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.BRepPrimAPI.html#module-OCC.BRepPrimAPI) For creating primitive surface geometry
