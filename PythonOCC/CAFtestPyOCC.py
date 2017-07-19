@@ -1,3 +1,6 @@
+# https://www.opencascade.com/content/how-add-names-step-or-iges-file
+# https://github.com/tpaviot/pythonocc-core/blob/master/examples/core_load_step_ap203_ocaf.py
+
 from OCC.gp import *
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
 from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse 
