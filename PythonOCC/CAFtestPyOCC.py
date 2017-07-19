@@ -131,5 +131,5 @@ WS = XSControl_WorkSession()
 writer = STEPCAFControl_Writer(WS.GetHandle(),False)
 writer.Transfer(h_doc,STEPControl_AsIs)
 writer.SetNameMode(True)
-writer.Write("transformerCAFPyOCC.stp")
+writer.Write("CAFtestPyOCC.stp")
 
