@@ -1,6 +1,6 @@
 ## FreeCAD vs PythonOCC vs SALOME
 
-**READ THIS LINK BELOW:**
+**A COMPARISON CHART IN THE LINK BELOW**
 
 https://docs.google.com/spreadsheets/d/1vHLevdy62Dbzmq1BHO2oLwCfVPU-tXW50nIQcuVB0mo/edit?usp=sharing
 
