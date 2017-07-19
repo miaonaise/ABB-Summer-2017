@@ -66,11 +66,6 @@ midBushSHP = midBushSHP.cut(common)
 doc.addObject("Part::Feature","midBush")
 doc.midBush.Shape = midBushSHP
 
-tankSHP = tankSHP.Shells[0]
-tankSHP = tankSHP.cut(common)
-doc.addObject("Part::Feature","tank")
-doc.tank.Shape = tankSHP
-
 leftBushSHP.rotate(Base.Vector(0,0,0),Base.Vector(1,0,0),BA)
 leftBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBushSHP = leftBushSHP.cut(tankSHP)
@@ -83,6 +78,10 @@ rightBushSHP = rightBushSHP.cut(tankSHP)
 doc.addObject("Part::Feature","rightBush")
 doc.rightBush.Shape = rightBushSHP
 
+tankSHP = tankSHP.Shells[0]
+tankSHP = tankSHP.cut(common)
+doc.addObject("Part::Feature","tank")
+doc.tank.Shape = tankSHP
 
 # EXPANSION VESSEL
 EL = 30 # length
