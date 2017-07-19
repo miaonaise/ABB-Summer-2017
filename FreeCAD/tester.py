@@ -61,6 +61,7 @@ BIn = 3 # how far in bushing comes from the y-axis
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
 midBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2,TH))
+midBushSHP = midBushSHP.Shells[0]
 common=midBushSHP.common(tankSHP)
 midBushSHP = midBushSHP.cut(common)
 doc.addObject("Part::Feature","midBush")
