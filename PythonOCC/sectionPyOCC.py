@@ -7,54 +7,57 @@ import math
 
 
 # TANK
-TL = 20; TW = 60; TH = 30
+TL = 20; TW = 60; TH = 30  # size dimension
 tank = BRepPrimAPI_MakeBox(TL, TW, TH).Shape()
 
 
 # BUSHING
-BA = 20  # angle between bushings in degrees
+# variables
+BA = 20 # angle between bushings in degrees
 BS = 10 # seperation distance between two bushings
 BIn = 3 # how far in bushing comes from the y-axis
 
-BH = 40 # bush height/total length
-BHL = 4 # head length
-BTL = 5 # tap length
-BCL = BH-BHL-BTL # core length
-BOR = 3 # outer radius
-BCR = 2.7 # core radius
+BH = 40           # bush height/total length
+BHL = 4           # head length
+BTL = 5           # tap length
+BCL = BH-BHL-BTL  # core length
+BOR = 3           # outer radius
+BCR = 2.7         # core radius
 
-BIRSm = 3.5 # radius of small CI
-BIHSm = 0.5 # height of small CI
-BIRLg = 4 # radius of large CI
-BIHLg = float(BIRLg*BIHSm)/BIRSm # height of large CI (proportional)
-BIS = 0.5 # seperation between CIs
+BIRSm = 3.5                       # radius of small CI
+BIHSm = 0.5                       # height of small CI
+BIRLg = 4                         # radius of large CI
+BIHLg = float(BIRLg*BIHSm)/BIRSm  # height of large CI (proportional)
+BIS = 0.5                         # seperation between CIs
 
-BIHPack = BIHSm+BIHLg+2*BIS # pack length
-BIno = int(BCL//BIHPack) # number of packs fitted into core length
-BIrem = BCL % BIHPack # remainder length
+BIHPack = BIHSm+BIHLg+2*BIS  # pack length
+BIno = int(BCL//BIHPack)     # number of packs fitted into core length
+BIrem = BCL % BIHPack        # remainder length
 
-# building a bushing shape
+# building bushing shape
 Btap = BRepPrimAPI_MakeCylinder(BOR,BTL).Shape()
-p = gp_Ax2(gp_Pnt(0,0,BTL),gp_DZ()) # placement
+p = gp_Ax2(gp_Pnt(0,0,BTL),gp_DZ())     # placement
 Bcore = BRepPrimAPI_MakeCylinder(p,BCR,BCL).Shape()
 p = gp_Ax2(gp_Pnt(0,0,BTL+BCL),gp_DZ()) # placement
 Bhead = BRepPrimAPI_MakeCylinder(p,BOR,BHL).Shape()
 bushing = BRepAlgoAPI_Fuse(Btap, Bcore).Shape()
 bushing = BRepAlgoAPI_Fuse(bushing, Bhead).Shape()
 
-BIinit = BTL+float(BIrem)/2+BIS # initial height for first cone
+# adding composite insulators to shape
+BIinit = BTL+float(BIrem)/2+BIS     # initial height for first cone
 for i in range(0,BIno):
 	Bconez = BIinit + i*BIHPack # local height for cones
-  	p = gp_Ax2(gp_Pnt(0,0,Bconez),gp_DZ()) # placement
+  	p = gp_Ax2(gp_Pnt(0,0,Bconez),gp_DZ())           # placement
 	BconeLg = BRepPrimAPI_MakeCone(p,BIRLg,BCR,BIHLg).Shape()
   	bushing = BRepAlgoAPI_Fuse(bushing, BconeLg).Shape()
   	p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ()) # placement
 	BconeSm = BRepPrimAPI_MakeCone(p,BIRSm,BCR,BIHSm).Shape()
-	bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
+bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
 
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
-ltrsf = gp_Trsf() # create and set up transformation for leftBush
+# create and set up transformation for leftBush
+ltrsf = gp_Trsf()
 ltrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(BA))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
@@ -65,13 +68,14 @@ meh = BRepAlgoAPI_Section(leftBush,tank).Shape()
 heh = topods()
 leftBush = BRepAlgoAPI_Cut(leftBush,meh).Shape()
 
-mtrsf = gp_Trsf() # create and set up transformation for midBush
+# create and set up transformation for midBush
+mtrsf = gp_Trsf()
 mtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
 midBush = BRepBuilderAPI_Transform(bushing, mtrsf).Shape()
 common = BRepAlgoAPI_Common(midBush,tank).Shape()
 
-
-rtrsf = gp_Trsf() # create and set up transformation for rightBush
+# create and set up transformation for rightBush
+rtrsf = gp_Trsf()
 rtrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(360-BA))
 rightBush = BRepBuilderAPI_Transform(bushing, rtrsf).Shape()
 rtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
@@ -81,12 +85,12 @@ rightBush = BRepAlgoAPI_Cut(rightBush,tank).Shape() # cut common part of bushing
 
 # EXPANSION VESSEL
 EL = 30 # length
-ER = 5 # radius
+ER = 5  # radius
 ESX = 8 # how much it pops out relative to tank (along x-axis)
-ESY = 4 # sep along y-axis
-ESZ = 7 # sep along z-axis
+ESY = 4 # sep length from tank along y-axis
+ESZ = 7 # sep length from tank along z-axis
 EX = TL-(EL-ESX); EY = -(ESY+ER); EZ = TH+ESZ+ER
-p = gp_Ax2(gp_Pnt(EX,EY,EZ),gp_DX()) # placement
+p = gp_Ax2(gp_Pnt(EX,EY,EZ),gp_DX())
 expVessel = BRepPrimAPI_MakeCylinder(p,ER,EL).Shape()
 
 
