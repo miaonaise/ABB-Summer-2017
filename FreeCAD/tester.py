@@ -13,8 +13,7 @@ doc = App.newDocument("transformer")
 # TANK
 TL = 20; TW = 60; TH = 30 # size dimension
 tankSHP = Part.makeBox(TL,TW,TH)
-doc.addObject("Part::Feature","tank")
-doc.tank.Shape = tankSHP
+
 
 
 # BUSHING
@@ -67,7 +66,10 @@ midBushSHP = midBushSHP.cut(common)
 doc.addObject("Part::Feature","midBush")
 doc.midBush.Shape = midBushSHP
 
-
+tankSHP = tankSHP.Shells[0]
+tankSHP = tankSHP.cut(common)
+doc.addObject("Part::Feature","tank")
+doc.tank.Shape = tankSHP
 
 leftBushSHP.rotate(Base.Vector(0,0,0),Base.Vector(1,0,0),BA)
 leftBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
