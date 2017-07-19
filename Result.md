@@ -3,6 +3,11 @@
 **COMPARISON CHART:**
 https://docs.google.com/spreadsheets/d/1vHLevdy62Dbzmq1BHO2oLwCfVPU-tXW50nIQcuVB0mo/edit?usp=sharing
 ##
-I find working in all environments comfortable. I like how PythonOCC library totally corresponds to the OCCT library and its examples provided by Thomas Paviot. I can always use FreeCAD simple examples and find the same function in PythonOCC or vice versa. SALOME has a very nice documentation and a nice forum, however it is has the least convenient method for running the scripts especially if one uses windows. 
+### Summary
+I find working in all environments comfortable. I like how PythonOCC library totally corresponds to the OCCT library and its more advanced examples provided by Thomas Paviot. One can always use simple FreeCAD examples and then find corresponding functions in PythonOCC and SALOME or vice versa, one will notice that the modules are very similar. FreeCAD has a user friendly interface where you can edit the script, run it and visuazlie the geometry. SALOME has a very nice and organized documentation.
 
-In my opinion, PythonOCC is the best one. It has most functionalities and therefore most potential. The documentation and examples are relatively difficult to understand due to its lack of description. However, one can study FreeCAD or SALOME's documentation + examples and find the corresponding module in PythonOCC. They are after all, all based on the OCCT library. 
+However, PythonOCC's minimalized documentation can be difficult to understand. In FreeCAD, one probably has to rely on examples for learning about modules as it does not have a complete API documentation. Salome is linux orientated and does not specialize in creating CAD geometry and it is therefore difficult to find a good exporting method.
+
+Overall, PythonOCC is the best one in my opinion. It has most functionalities and therefore most potential. The limitation of the documentation can be dealed with by understanding the modules through Open Cascade Technology's (OCCT) documention. Second place goes to FreeCAD as it is the easiest one to begin with. 
+
+Last words, there is no groundbreaking difference between these three softwares. They can all do what you want to do, but they all require you to go through frustration of not knowing how to do.
