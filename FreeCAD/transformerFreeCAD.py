@@ -124,4 +124,4 @@ __objs__.append(FreeCAD.getDocument("transformer").getObject("leftFan"))
 __objs__.append(FreeCAD.getDocument("transformer").getObject("rightFan"))
 
 # filetypes: step, iges, stl
-Part.export(__objs__,"transformerFreeCAD.iges")
+Part.export(__objs__,"transformerFreeCAD.stl")
