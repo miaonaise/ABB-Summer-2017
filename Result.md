@@ -1,6 +1,6 @@
 ## FreeCAD vs PythonOCC vs SALOME
 
-_OpenCascade is a software development platform freely available in open source. It includes C++ components for 3D surface and solid modeling, visualization, data exchange and rapid application development. OpenCascade is extremely mature (20 years of development by experts), stable and complete. OpenCascade is written in C++, which is not the simplest of programming languages to use._
+**READ THIS LINK BELOW:**
 
 https://docs.google.com/spreadsheets/d/1vHLevdy62Dbzmq1BHO2oLwCfVPU-tXW50nIQcuVB0mo/edit?usp=sharing
 
