@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 sys.path.append("/Program Files/FreeCAD 0.16/bin") # for the system to find the FreeCAD modules
 
@@ -10,17 +11,15 @@ doc = App.newDocument("transformer")
 
 # L,W,H defined along x,y,z axis respectively
 
-# TANK AND BUSHING
-
-# tank initial shape
+# TANK
 TL = 20; TW = 60; TH = 30 # size dimension
 tankSHP = Part.makeBox(TL,TW,TH)
+doc.addObject("Part::Feature","tank")
+doc.tank.Shape = tankSHP
 
-# bushing variables
-BA = 20 # angle between bushings in degrees
-BS = 10 # seperation distance between two bushings
-BIn = 3 # how far in bushing comes from the y-axis
 
+# BUSHING
+# variables
 BH = 40          # bush height/total length
 BHL = 4          # head length
 BTL = 5          # tap length
@@ -46,7 +45,7 @@ midBushSHP = Btap.fuse(Bcore).fuse(Bhead)
 leftBushSHP = Btap.fuse(Bcore).fuse(Bhead)
 rightBushSHP = Btap.fuse(Bcore).fuse(Bhead)
 
-# adding composite insulators to bushing shape
+# adding composite insulators to shape
 BIinit = BTL+float(BIrem)/2+BIS # initial height for first cone
 for i in range(0,BIno):
 	Bconez = BIinit + i*BIHPack	
@@ -56,32 +55,27 @@ for i in range(0,BIno):
 	leftBushSHP = leftBushSHP.fuse(BconeLg).fuse(BconeSm)
 	rightBushSHP = rightBushSHP.fuse(BconeLg).fuse(BconeSm)
 
-# creating tank and bushing shapes
+# creating bushing objects
+BA = 20 # angle between bushings in degrees
+BS = 10 # seperation distance between two bushings
+BIn = 3 # how far in bushing comes from the y-axis
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
 midBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2,TH))
-midBushSHP = midBushSHP.Shells[0] # convert to shell to cut off face
-midcommon = midBushSHP.common(tankSHP)
-midBushSHP = midBushSHP.cut(midcommon)
+doc.addObject("Part::Feature","midBush")
+doc.midBush.Shape = midBushSHP
 
 leftBushSHP.rotate(Base.Vector(0,0,0),Base.Vector(1,0,0),BA)
 leftBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBushSHP = leftBushSHP.cut(tankSHP)
-leftBushSHP = leftBushSHP.Shells[0] # convert to shell to cut off face
-leftcommon = leftBushSHP.common(tankSHP)
-leftBushSHP = leftBushSHP.cut(leftcommon)
+doc.addObject("Part::Feature","leftBush")
+doc.leftBush.Shape = leftBushSHP
 
 rightBushSHP.rotate(Base.Vector(0,0,0),Base.Vector(1,0,0),360-BA)
 rightBushSHP.translate(Base.Vector(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
 rightBushSHP = rightBushSHP.cut(tankSHP)
-rightBushSHP = rightBushSHP.Shells[0] # convert to shell to cut off face
-rightcommon = rightBushSHP.common(tankSHP)
-rightBushSHP = rightBushSHP.cut(rightcommon)
-
-tankSHP = tankSHP.Shells[0] # convert to shell to cut off faces
-tankSHP = tankSHP.cut(midcommon)
-tankSHP = tankSHP.cut(leftcommon)
-tankSHP = tankSHP.cut(rightcommon)
+doc.addObject("Part::Feature","rightBush")
+doc.rightBush.Shape = rightBushSHP
 
 
 # EXPANSION VESSEL
@@ -92,6 +86,8 @@ ESY = 4 # sep along y-axis
 ESZ = 7 # sep along z-axis
 EX = TL-(EL-ESX); EY = -(ESY+ER); EZ = TH+ESZ+ER
 expVesselSHP = Part.makeCylinder(ER,EL,Base.Vector(EX,EY,EZ),Base.Vector(1,0,0))
+doc.addObject("Part::Feature","expVessel")
+doc.expVessel.Shape = expVesselSHP
 
 
 # RADIATOR
@@ -101,7 +97,8 @@ RS = 0              # radiator's top is RD higher than tank's top
 Rgap = 1            # gap between radiator and tank
 RX = TL+Rgap; RY = float(TW-RW)/2; RZ = TH-RH+RS
 radiatorSHP = Part.makeBox(RL,RW,RH,Base.Vector(RX,RY,RZ))
-
+doc.addObject("Part::Feature","radiator")
+doc.radiator.Shape = radiatorSHP
 
 # FANS on radiator
 FR = 3 # radius
@@ -109,13 +106,22 @@ FD = 2 # depth
 FS = 2 # fan's distance from radiator's bottom
 FX = float(RL)/2+RX; FYleft = RY; FYright = RY+RW; FZ = RZ+FS+FR
 leftFanSHP = Part.makeCylinder(FR,FD,Base.Vector(FX,FYleft,FZ),Base.Vector(0,-1,0))
+doc.addObject("Part::Feature","leftFan")
+doc.leftFan.Shape = leftFanSHP
 rightFanSHP = Part.makeCylinder(FR,FD,Base.Vector(FX,FYright,FZ),Base.Vector(0,1,0))
+doc.addObject("Part::Feature","rightFan")
+doc.rightFan.Shape = rightFanSHP
 
 
-# Exporting
-compSHP = Part.makeCompound([tankSHP,midBushSHP,leftBushSHP,rightBushSHP,expVesselSHP,radiatorSHP,leftFanSHP,rightFanSHP])
-doc.addObject("Part::Feature","comp")
-doc.comp.Shape = compSHP
+__objs__=[]
+__objs__.append(FreeCAD.getDocument("transformer").getObject("tank"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("midBush"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("leftBush"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("rightBush"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("expVessel"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("radiator"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("leftFan"))
+__objs__.append(FreeCAD.getDocument("transformer").getObject("rightFan"))
 
 # filetypes: step, iges, stl
-Part.export([FreeCAD.getDocument("transformer").getObject("comp")],"tester.step")
+Part.export(__objs__,"transformerFreeCAD.step")
