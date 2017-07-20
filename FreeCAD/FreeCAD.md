@@ -23,8 +23,9 @@ Begin with studying a simple script of box. This script includes the essential c
 import sys #  Helping the computer finding the FreeCAD modules
 sys.path.append("/Program Files/FreeCAD 0.16/bin")
 
+#  Esssential modules
 import FreeCAD
-import Part  #  Esssential modules
+import Part
 
 doc = App.newDocument("docName") #  Creating new document
 
@@ -34,15 +35,16 @@ doc.myBox.Shape = boxShape
 
 doc.recompute()
 
-__objs__=[] #  List for all objects to be exported
+#  List for all objects to be exported
+__objs__=[]
 __objs__.append(FreeCAD.getDocument("docName").getObject("myBox"))
 
 Part.export(__objs__, "C:/Users/XJULLI/Desktop/testBox.step") # exporting into a step file
 ```
 **Alternative export method**
-```
-# create a compound shape and export one object instead
-# this method doesn't require you to convert every shape to an independent object
+```python
+#  Create a compound shape and export one object instead
+#  This method doesn't require you to convert every shape to an independent object
 
 box = Part.makeBox(10,10,10)
 cyl = Part.makeCylinder(2,10)
@@ -51,7 +53,7 @@ compSHP = Part.makeCompound([box,cyl]) # make compound
 doc.addObject("Part::Feature","comp")
 doc.comp.Shape = compSHP
 
-# export
+#  Export
 Part.export([FreeCAD.getDocument("docName").getObject("comp")], "C:/Users/XJULLI/Desktop/testComp.step")
 ```
 Scripts can also be run within the FreeCAD application by opening the python file in FreeCAD. 
