@@ -37,27 +37,31 @@ doc.recompute()
 __objs__=[] #  List for all objects to be exported
 __objs__.append(FreeCAD.getDocument("docName").getObject("myBox"))
 
-Part.export(__objs__,"C:/Users/XJULLI/Desktop/testBox.step")
+Part.export(__objs__, "C:/Users/XJULLI/Desktop/testBox.step") # exporting into a step file
 ```
-One can also run this script within the FreeCAD application by opening the python file in FreeCAD. 
+**Alternative export method**
+```
+# create a compound shape and export one object instead
+box = Part.makeBox(10,10,10)
+cyl = Part.makeCylinder(2,10)
+compSHP = Part.makeCompound([box,cyl]) # make compound
+
+doc.addObject("Part::Feature","comp")
+doc.comp.Shape = compSHP
+
+Part.export([FreeCAD.getDocument("docName").getObject("comp")], "C:/Users/XJULLI/Desktop/testComp.step")
+```
+Scripts can also be run within the FreeCAD application by opening the python file in FreeCAD. 
 
 Script Tutorial: https://www.freecadweb.org/wiki/Topological_data_scripting
-
-Overview of the Part Module: https://www.freecadweb.org/wiki/Part_Module
 
 Part API: https://www.freecadweb.org/wiki/Part_API
 
 Object API: https://www.freecadweb.org/wiki/Object_API
 
-These tools have helped me to achieve the aim. 
+These tools have helped me to achieve the aim.
 
-## Exporting and Importing
-Exporting with [FILETYPE] = stl, step, iges
-```python
-Import Part
-Part.export(__objs__,"C:/Users/XJULLI/Documents/MacroJuju/test.[FILETYPE]")
-```
-Results when importing into ANSA:
+## Import Results Sample
 
 **STL**
 - Only elements are imported
