@@ -58,7 +58,7 @@ https://www.opencascade.com/content/how-add-names-step-or-iges-file
 
 https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.STEPCAFControl.html#module-OCC.STEPCAFControl
 
-## Further things to look into for the Transformer Script
+## Further things to look into for transformerPyOCC.py
 - **STEPCAFControl** - This module should give you the capability of writing names on your objects when being trasnferred to a STEP entity ([source](https://www.opencascade.com/content/how-add-names-step-or-iges-file)). In the CAFtestPyOCC.py you will find the attempt on applying this module based on this [example](https://github.com/tpaviot/pythonocc-core/blob/master/examples/core_load_step_ap203_ocaf.py).
-- **
+- **Cutting common surface of parts** - In this script, the overlapping surface from the bushings and the tank is still there. This should be removed for the purpose of future use. The process should go as to first finding the surface they have in common and then cut it off from both of the parts. I have attempted to turn them into shells and find the common part and then use cut. In temp.py, I am attempting to use the BRepAlgoAPI_Section which outputs a compound of edges when the input is of two solids have interfering faces.
 
