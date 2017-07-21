@@ -57,3 +57,6 @@ https://github.com/tpaviot/pythonocc-core/blob/master/examples/core_topology_boo
 https://www.opencascade.com/content/how-add-names-step-or-iges-file
 
 https://cdn.rawgit.com/tpaviot/pythonocc-core/3ceb6b92/doc/apidoc/0.17.3/OCC.STEPCAFControl.html#module-OCC.STEPCAFControl
+
+## Further things to look into for the Transformer Script
+- **STEPCAFControl** - This module should give you the capability of writing names on your objects when being trasnferred to a STEP entity ([source]https://www.opencascade.com/content/how-add-names-step-or-iges-file). 
