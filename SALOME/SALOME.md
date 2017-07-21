@@ -47,3 +47,7 @@ box = geompy.MakeBoxDXDYDZ(10,10,10)
 geompy.Export( geom, "/tmp/myBox.step", "STEP")
 ```
 It is currently exported in /tmp directory in the computer. I do not know how to modify export destination.
+
+## Further things to look into for transformerSALOME.py
+- I have not removed the shared face of the tank and the bushings from both parts.
+- **Modifying export destination** - the script currently exports the geometry into a tmp directory. Have not found out how to modify the destination of export.
