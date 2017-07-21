@@ -8,6 +8,4 @@ I find working in all environments comfortable. I like how PythonOCC library tot
 
 However, PythonOCC's minimalized documentation can be difficult to understand. In FreeCAD, one probably has to rely on examples for learning about modules as it does not have a complete API documentation. Salome is linux orientated and does not specialize in creating CAD geometry and it is therefore difficult to find a good exporting method.
 
-Overall, PythonOCC is the best one in my opinion. It has most functionalities and therefore most potential. The limitation of the documentation can be dealed with by understanding the modules through Open Cascade Technology's (OCCT) documention. Second place goes to FreeCAD as it is the easiest one to begin with. 
-
-Lastly, there is no big difference between these three softwares. They can all do what you want to do, but they all require you to go through frustration of not knowing how to do it.
+For the purpose of creating CAD geometries, I recommed either PythonOCC or FreeCAD. PythonOCC has the most functionalities and therefore most potential. The limitation of the documentation can be dealed with by understanding the modules through Open Cascade Technology's (OCCT) documention. FreeCAD is the easiest one to begin with and the one with an active forum to find help.
