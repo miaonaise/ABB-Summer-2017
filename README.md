@@ -5,7 +5,7 @@ Welcome to my repository. In this repository you will find the work I have compl
 The aim is to produce a parametrized geometry in a script file by using Python API/modules provided by a free CAD software. The task was to research which softwares would be able to fulfill the aim and then compare and evaluate their API/modules.
 
 ## MY DOCUMENTATION
-The softwares I have looked into are listed down below. They each have their own directories and a [SOFTWARENAME].md file which is the main documentation of that software. 
+The softwares I have looked into are listed down below. Each software comes with a directory that contains a INFO.md file for description of each file within the directory and a [SOFTWARENAME].md file which is the software's main documentation. 
 - FreeCAD
 - Onshape
 - BRL-CAD
