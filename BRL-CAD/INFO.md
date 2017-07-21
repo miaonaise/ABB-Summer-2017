@@ -1,2 +1,2 @@
 ### BRL-CAD Content
-- _BRL-CAD.md_ - Main documentation
+- BRL-CAD.md - Main documentation
