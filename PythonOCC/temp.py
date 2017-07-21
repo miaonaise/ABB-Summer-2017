@@ -2,7 +2,8 @@ from OCC.gp import *
 from OCC.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakeCone
 from OCC.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Fuse, BRepAlgoAPI_Common, BRepAlgoAPI_Section
 from OCC.STEPControl import STEPControl_Writer, STEPControl_AsIs
-from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform, BRepBuilderAPI_MakeWire, BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeFace
+from OCC.BRepBuilderAPI import BRepBuilderAPI_Transform, BRepBuilderAPI_MakeWire, BRepBuilderAPI_MakeFace
+from OCC.TopoDS import TopoDS_Builder, TopoDS_Shell, topods_Shell, TopoDS_Wire, topods_Wire
 import math
 
 
@@ -52,27 +53,32 @@ for i in range(0,BIno):
   	bushing = BRepAlgoAPI_Fuse(bushing, BconeLg).Shape()
   	p = gp_Ax2(gp_Pnt(0,0,Bconez+BIHLg+BIS),gp_DZ()) # placement
 	BconeSm = BRepPrimAPI_MakeCone(p,BIRSm,BCR,BIHSm).Shape()
-bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
+	bushing = BRepAlgoAPI_Fuse(bushing, BconeSm).Shape()
 
 BSIN = BOR*math.sin(math.radians(BA)) ; BCOS = BOR*math.cos(math.radians(BA))
 
+
+
+
 # create and set up transformation for leftBush
-ltrsf = gp_Trsf()
+ltrsf = gp_Trsf() 
 ltrsf.SetRotation(gp_Ax1(gp_Pnt(0,0,0),gp_Dir(1,0,0)),math.radians(BA))
 leftBush = BRepBuilderAPI_Transform(bushing, ltrsf).Shape()
 ltrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2-BS-BCOS,TH-BSIN))
 leftBush = BRepBuilderAPI_Transform(leftBush, ltrsf).Shape()
 leftBush = BRepAlgoAPI_Cut(leftBush,tank).Shape() # cut common part of bushing and tank
 
-meh = BRepAlgoAPI_Section(leftBush,tank).Shape()
-heh = topods()
-leftBush = BRepAlgoAPI_Cut(leftBush,meh).Shape()
+
+
+mooh = BRepAlgoAPI_Section(leftBush,tank).Shape()
+wire = topods_Wire(mooh)
+face = BRepBuilderAPI_MakeFace(wire).Face()
+#leftBush = BRepAlgoAPI_Cut(leftBush,face).Shape()
 
 # create and set up transformation for midBush
 mtrsf = gp_Trsf()
 mtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2,TH))
 midBush = BRepBuilderAPI_Transform(bushing, mtrsf).Shape()
-common = BRepAlgoAPI_Common(midBush,tank).Shape()
 
 # create and set up transformation for rightBush
 rtrsf = gp_Trsf()
@@ -82,6 +88,9 @@ rtrsf.SetTranslation(gp_Vec(BIn+BOR,float(TW)/2+BS+BCOS,TH-BSIN))
 rightBush = BRepBuilderAPI_Transform(rightBush, rtrsf).Shape()
 rightBush = BRepAlgoAPI_Cut(rightBush,tank).Shape() # cut common part of bushing and tank
 
+
+#leftcommon = BRepAlgoAPI_Common(tankShell,leftShell).Shape()
+#tankShell = BRepAlgoAPI_Cut(tankShell,leftcommon).Shape()
 
 # EXPANSION VESSEL
 EL = 30 # length
@@ -127,4 +136,4 @@ step_writer.Transfer(expVessel,STEPControl_AsIs)
 step_writer.Transfer(radiator,STEPControl_AsIs)
 step_writer.Transfer(leftFan,STEPControl_AsIs)
 step_writer.Transfer(rightFan,STEPControl_AsIs)
-step_writer.Write("sectionPyOCC.stp")
+step_writer.Write("temp.stp")
